@@ -18,21 +18,30 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 					fields {
 						slug
 					}
+					frontmatter {
+						title
+					}
 				}
 			}
 		}
 	`);
 
-	result.data.allMarkdownRemark.nodes.forEach(o => {
-		const { slug } = o.fields;
+	const createBlogPage = (curr, prev, next) => {
 		createPage({
-			path: `/blog${slug}`,
+			path: `/blog${curr.fields.slug}`,
 			component: postTemplate,
 			context: {
-				slug
+				slug: curr.fields.slug,
+				prev: prev ? { title: prev.frontmatter.title, path: `/blog${prev.fields.slug}`} : undefined,
+				next: next ? { title: next.frontmatter.title, path: `/blog${next.fields.slug}`} : undefined,
 			}
-		})
-	});
+		});
+	};
+
+	const posts = result.data.allMarkdownRemark.nodes;
+	for (let i = 0; i < posts.length; i++) {
+		createBlogPage(posts[i], posts[i-1], posts[i+1]);
+	}
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import BlogPost from '../../components/BlogPost/BlogPost';
 import Layout from '../../components/Layout/Layout';
 import { Typography } from '@material-ui/core';
@@ -31,9 +31,19 @@ interface MarkdownRemarkQueryResult {
 	};
 }
 
-function BlogTemplate({ data }: { data: MarkdownRemarkQueryResult }) {
+interface BlogTemplateProps {
+	data: MarkdownRemarkQueryResult;
+	pageContext: {
+		slug: string;
+		prev?: { path: string; title: string };
+		next?: { path: string; title: string };
+	};
+}
+
+function BlogTemplate({ data, pageContext }: BlogTemplateProps) {
 	const { markdownRemark } = data;
 	const { html, frontmatter, timeToRead } = markdownRemark;
+	const { next, prev } = pageContext;
 	return (
 		<Layout>
 			<header>
@@ -46,6 +56,10 @@ function BlogTemplate({ data }: { data: MarkdownRemarkQueryResult }) {
 				</Typography>
 			</header>
 			<BlogPost html={html} />
+			<div>
+				{next ? <Link to={next.path}>{next.title} →</Link> : null}
+				{prev ? <Link to={prev.path}>← {prev.title}</Link> : null}
+			</div>
 		</Layout>
 	);
 }

@@ -7,16 +7,20 @@ import { CssBaseline, createStyles, withStyles } from '@material-ui/core';
 
 const Head = () =>
 	<Helmet>
-		<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,400|Noto+Serif+TC:300,400|Noto+Serif&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,400|Noto+Serif+TC:300,400|Noto+Serif|Source+Sans+Pro:400,400i,700,700i&display=swap" rel="stylesheet" />
 	</Helmet>;
 
 const mySerif = `"Noto Serif TC", "Noto Serif SC", "Noto Serif", serif`;
+
+const mySans = `"Source Sans Pro", sans-serif`;
 
 const myTheme = (isDark: boolean) => responsiveFontSizes(createMuiTheme({
 	palette: {
 		type: isDark ? 'dark' : 'light'
 	},
 	typography: {
+		fontSize: 16,
+		fontFamily: mySans,
 		h1: {
 			fontFamily: mySerif
 		},
@@ -28,6 +32,9 @@ const myTheme = (isDark: boolean) => responsiveFontSizes(createMuiTheme({
 		},
 		h4: {
 			fontFamily: mySerif
+		},
+		body1: {
+			fontFamily: mySans
 		}
 	}
 }));
@@ -35,25 +42,57 @@ const myTheme = (isDark: boolean) => responsiveFontSizes(createMuiTheme({
 const GlobalStyles = withStyles((theme: Theme) => createStyles({
 	'@global': {
 		h1: {
-			...theme.typography.h1
+			...theme.typography.h2,
+			margin: theme.spacing(2, 0)
 		},
 		h2: {
-			...theme.typography.h2
+			...theme.typography.h3,
+			margin: theme.spacing(2, 0)
 		},
 		h3: {
-			...theme.typography.h3
+			...theme.typography.h4,
+			margin: theme.spacing(2, 0)
 		},
 		h4: {
-			...theme.typography.h4
+			...theme.typography.h5,
+			margin: theme.spacing(2, 0)
 		},
 		h5: {
-			...theme.typography.h5
+			...theme.typography.h6,
+			margin: theme.spacing(2, 0)
 		},
-		h6: {
-			...theme.typography.h6
-		},
+		// don't use h6
 		p: {
-			...theme.typography.body1
+			...theme.typography.body1,
+			margin: theme.spacing(2, 0)
+		},
+		code: {
+			fontSize: theme.typography.body1.fontSize
+		},
+		a: {
+			color: theme.palette.primary.main,
+			textDecoration: 'none',
+			boxShadow: `inset 0px -1px 0px 0px ${theme.palette.primary.main}`,
+			// transition: theme.transitions.create('box-shadow'),
+			'&:hover': {
+				boxShadow: 'none'
+			}
+		},
+		// code highlight block
+		'.gatsby-highlight': {
+			margin: theme.spacing(1, -2),
+			'& > pre': {
+				borderRadius: theme.shape.borderRadius
+			}
+		},
+		'.gatsby-highlight-code-line': {
+			backgroundColor: '#feb',
+			display: 'block',
+			marginLeft: theme.spacing(-2),
+			marginRight: theme.spacing(-2),
+			paddingRight: theme.spacing(2),
+			paddingLeft: theme.spacing(1.5),
+			borderLeft: '0.25em solid #f99'
 		}
 	}
 }))(() => null);
