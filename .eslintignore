@@ -1,2 +1,4 @@
 !.huskyrc.js
 public
+gatsby-config.js
+gatsby-node.js

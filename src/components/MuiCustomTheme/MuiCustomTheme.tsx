@@ -7,8 +7,10 @@ import { CssBaseline, createStyles, withStyles } from '@material-ui/core';
 
 const Head = () =>
 	<Helmet>
-		<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC|Noto+Serif+TC&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,400|Noto+Serif+TC:300,400|Noto+Serif&display=swap" rel="stylesheet" />
 	</Helmet>;
+
+const mySerif = `"Noto Serif TC", "Noto Serif SC", "Noto Serif", serif`;
 
 const myTheme = (isDark: boolean) => responsiveFontSizes(createMuiTheme({
 	palette: {
@@ -16,10 +18,16 @@ const myTheme = (isDark: boolean) => responsiveFontSizes(createMuiTheme({
 	},
 	typography: {
 		h1: {
-			fontFamily: `"Noto Serif TC", "Noto Serif SC", serif`
+			fontFamily: mySerif
 		},
 		h2: {
-			fontFamily: `"Noto Serif TC", "Noto Serif SC", serif`
+			fontFamily: mySerif
+		},
+		h3: {
+			fontFamily: mySerif
+		},
+		h4: {
+			fontFamily: mySerif
 		}
 	}
 }));

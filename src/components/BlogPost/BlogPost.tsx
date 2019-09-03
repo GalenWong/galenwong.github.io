@@ -1,12 +1,13 @@
 
 import React from 'react';
 
-function BlogPost() {
+interface BlogPostProps {
+	html: string;
+}
+
+function BlogPost({ html }: BlogPostProps) {
 	return (
-		<article>
-			<h1>Title of blog</h1>
-			<p>Hahahaha to day tos fasfo iajfi o </p>
-		</article>
+		<article dangerouslySetInnerHTML={{ __html: html }}/>
 	);
 }
 
