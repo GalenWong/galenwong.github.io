@@ -66,7 +66,8 @@ const GlobalStyles = withStyles((theme: Theme) => createStyles({
 			...theme.typography.body1,
 			margin: theme.spacing(2, 0)
 		},
-		code: {
+		// prism js inline code
+		':not(pre) > code[class*="language-"]': {
 			fontSize: theme.typography.body1.fontSize
 		},
 		a: {
