@@ -42,6 +42,11 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 	for (let i = 0; i < posts.length; i++) {
 		createBlogPage(posts[i], posts[i-1], posts[i+1]);
 	}
+
+	createPage({
+		path: '/',
+		component: path.resolve('src/templates/HomeTemplate/HomeTemplate.tsx')
+	});
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
