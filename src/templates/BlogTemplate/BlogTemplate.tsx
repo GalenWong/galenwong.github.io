@@ -46,20 +46,22 @@ function BlogTemplate({ data, pageContext }: BlogTemplateProps) {
 	const { next, prev } = pageContext;
 	return (
 		<Layout>
-			<header>
-				<Typography component="h1" variant="h2" gutterBottom>{frontmatter.title}</Typography>
-				<Typography variant="h4" component="h2">{frontmatter.subtitle}</Typography>
-				<Typography variant="body1" color="textSecondary">
-					{frontmatter.date}
-					{` • `}
-					{timeToRead} min read
-				</Typography>
-			</header>
-			<BlogPost html={html} />
-			<div>
-				{next ? <Link to={next.path}>{next.title} →</Link> : null}
-				{prev ? <Link to={prev.path}>← {prev.title}</Link> : null}
-			</div>
+			<article>
+				<header>
+					<Typography component="h1" variant="h2" gutterBottom>{frontmatter.title}</Typography>
+					<Typography variant="h4" component="h2">{frontmatter.subtitle}</Typography>
+					<Typography variant="body1" color="textSecondary">
+						{frontmatter.date}
+						{` • `}
+						{timeToRead} min read
+					</Typography>
+				</header>
+				<BlogPost html={html} />
+				<nav>
+					{next ? <Link to={next.path}>{next.title} →</Link> : null}
+					{prev ? <Link to={prev.path}>← {prev.title}</Link> : null}
+				</nav>
+			</article>
 		</Layout>
 	);
 }

@@ -7,7 +7,7 @@ interface BlogPostProps {
 
 function BlogPost({ html }: BlogPostProps) {
 	return (
-		<article dangerouslySetInnerHTML={{ __html: html }}/>
+		<div dangerouslySetInnerHTML={{ __html: html }}/>
 	);
 }
 
