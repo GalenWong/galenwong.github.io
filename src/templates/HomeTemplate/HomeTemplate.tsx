@@ -11,7 +11,6 @@ export const pageQuery = graphql`
     nodes {
       frontmatter {
         date
-        fromNow: date(fromNow: true)
         subtitle
         title
 			}
@@ -28,7 +27,6 @@ export const pageQuery = graphql`
 export interface BlogPost {
 	frontmatter: {
 		date: string;
-		fromNow: string;
 		subtitle: string;
 		title: string;
 	};

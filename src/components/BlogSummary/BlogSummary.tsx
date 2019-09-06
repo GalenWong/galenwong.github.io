@@ -1,4 +1,3 @@
-
 import React, { ElementType, ComponentProps } from 'react';
 import { Typography, Box } from '@material-ui/core';
 import { Link } from 'gatsby';
@@ -26,7 +25,7 @@ function BlogSummary({ post, component, ...props }: BlogSummaryProps) {
 				{post.frontmatter.subtitle}
 			</Typography>
 			<Typography variant="body1" color="textSecondary" gutterBottom>
-				{`${post.frontmatter.fromNow} • ${post.timeToRead} min read`}
+				{`${post.frontmatter.date} • ${post.timeToRead} min read`}
 			</Typography>
 		</Component>
 	);
