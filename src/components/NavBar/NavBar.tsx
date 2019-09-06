@@ -6,8 +6,8 @@ import { Link } from 'gatsby';
 function NavBar(props: ComponentProps<'header'>) {
 	return (
 		<header {...props}>
-			<Typography variant="h1" color="primary">
-				<Box fontSize="h4.fontSize" letterSpacing={6} marginBottom={1}>
+			<Typography variant="h4" color="primary">
+				<Box letterSpacing={6} marginBottom={1} fontWeight="h1.fontWeight">
 					<Link to="/" style={{ boxShadow: 'none' }}>
 						{`In the Middle 站中間。`}
 					</Link>
