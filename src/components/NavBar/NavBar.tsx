@@ -9,7 +9,9 @@ function NavBar(props: ComponentProps<'header'>) {
 			<Typography variant="h4" color="primary">
 				<Box letterSpacing={6} marginBottom={1} fontWeight="h1.fontWeight">
 					<Link to="/" style={{ boxShadow: 'none' }}>
-						{`In the Middle 站中間。`}
+						<span style={{ whiteSpace: 'nowrap' }}>In the Middle</span>
+						{` `}
+						<span style={{ whiteSpace: 'nowrap' }}>站中間。</span>
 					</Link>
 				</Box>
 			</Typography>
