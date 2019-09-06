@@ -16,7 +16,10 @@ const mySans = `"Merriweather", "Source Sans Pro", sans-serif`;
 
 const myTheme = (isDark: boolean) => responsiveFontSizes(createMuiTheme({
 	palette: {
-		type: isDark ? 'dark' : 'light'
+		type: isDark ? 'dark' : 'light',
+		primary: {
+			main: '#389abb'
+		}
 	},
 	typography: {
 		fontFamily: mySans,
@@ -42,6 +45,9 @@ const GlobalStyles = withStyles((theme: Theme) => {
 	const mainColor = theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.primary.light;
 	return createStyles({
 		'@global': {
+			body: {
+				transition: theme.transitions.create('background')
+			},
 			h1: {
 				...theme.typography.h2,
 				margin: theme.spacing(2, 0)
@@ -76,26 +82,30 @@ const GlobalStyles = withStyles((theme: Theme) => {
 				textDecoration: 'none',
 				boxShadow: `inset 0px -1px 0px 0px ${mainColor}`,
 				transition: theme.transitions.create('box-shadow'),
-				// transition: theme.transitions.create('box-shadow'),
 				'&:hover': {
 					boxShadow: `inset 0px 0px 0px 0px ${mainColor}`
 				}
 			},
 			// code highlight block
 			'.gatsby-highlight': {
-				margin: theme.spacing(1, -2),
+				marginLeft: '-1em',
+				marginRight: '-1em',
+				overflow: 'auto',
+				borderRadius: theme.shape.borderRadius,
 				'& > pre': {
-					borderRadius: theme.shape.borderRadius
+					minWidth: '100%',
+					margin: 0,
+					width: 'max-content'
 				}
 			},
 			'.gatsby-highlight-code-line': {
-				backgroundColor: '#feb',
+				backgroundColor: '#3b4251',
 				display: 'block',
-				marginLeft: theme.spacing(-2),
-				marginRight: theme.spacing(-2),
-				paddingRight: theme.spacing(2),
-				paddingLeft: theme.spacing(1.5),
-				borderLeft: '0.25em solid #f99'
+				marginRight: '-1em',
+				marginLeft: '-1em',
+				paddingLeft: '0.75em',
+				borderLeft: '0.25em solid #d8dee9',
+				minWidth: 'fit-content'
 			}
 		}
 	});

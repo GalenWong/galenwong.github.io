@@ -6,4 +6,4 @@
 
 // You can delete this file if you're not using it
 
-require('prismjs/themes/prism.css');
+require('./src/assets/prism-nord.css');
