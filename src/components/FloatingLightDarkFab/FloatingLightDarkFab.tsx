@@ -10,7 +10,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		minWidth: '100%',
 		textAlign: 'right',
 		bottom: 0,
-		marginBottom: theme.spacing(4)
+		marginBottom: theme.spacing(4),
+		// don't capture click on div
+		pointerEvents: 'none'
+	},
+	fab: {
+		// only capture click on button
+		pointerEvents: 'all'
 	}
 }));
 
@@ -19,7 +25,7 @@ function FloatingLightDarkFab() {
 	return (
 		<Box className={classes.fixedPosition}>
 			<Container maxWidth="md">
-				<LightDarkFab />
+				<LightDarkFab className={classes.fab} />
 			</Container>
 		</Box>
 	);
