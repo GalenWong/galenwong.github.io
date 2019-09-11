@@ -36,7 +36,14 @@ module.exports = {
 				plugins: [
 					`gatsby-remark-images`,
 					`gatsby-remark-copy-linked-files`,
-					`gatsby-remark-prismjs`
+					`gatsby-remark-prismjs`,
+					`gatsby-remark-smartypants`,
+					{
+						resolve: `gatsby-remark-external-links`,
+						options: {
+							target: '_blank'
+						}
+					},
 				]
 			}
 		},
