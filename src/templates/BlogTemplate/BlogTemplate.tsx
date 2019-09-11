@@ -3,7 +3,8 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import BlogPost from '../../components/BlogPost/BlogPost';
 import Layout from '../../components/Layout/Layout';
-import { Typography } from '@material-ui/core';
+import { Typography, Theme } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/styles';
 
 export const pageQuery = graphql`
 	query BlogPostByPath($slug: String!) {
@@ -40,7 +41,20 @@ interface BlogTemplateProps {
 	};
 }
 
+const useStyles = makeStyles((theme: Theme) => createStyles({
+	navBar: {
+		display: 'flex',
+		justifyContent: 'space-between',
+		margin: theme.spacing(4, 0),
+		flexWrap: 'wrap'
+	},
+	rightLink: {
+		marginLeft: 'auto'
+	}
+}));
+
 function BlogTemplate({ data, pageContext }: BlogTemplateProps) {
+	const classes = useStyles();
 	const { markdownRemark } = data;
 	const { html, frontmatter, timeToRead } = markdownRemark;
 	const { next, prev } = pageContext;
@@ -49,7 +63,7 @@ function BlogTemplate({ data, pageContext }: BlogTemplateProps) {
 			<article>
 				<header>
 					<Typography component="h1" variant="h2" gutterBottom>{frontmatter.title}</Typography>
-					<Typography variant="h4" component="h2">{frontmatter.subtitle}</Typography>
+					<Typography variant="h6" component="h2">{frontmatter.subtitle}</Typography>
 					<Typography variant="body1" color="textSecondary">
 						{frontmatter.date}
 						{` • `}
@@ -57,9 +71,9 @@ function BlogTemplate({ data, pageContext }: BlogTemplateProps) {
 					</Typography>
 				</header>
 				<BlogPost html={html} />
-				<nav>
-					{next ? <Link to={next.path}>{next.title} →</Link> : null}
+				<nav className={classes.navBar}>
 					{prev ? <Link to={prev.path}>← {prev.title}</Link> : null}
+					{next ? <Link to={next.path} className={classes.rightLink}>{next.title} →</Link> : null}
 				</nav>
 			</article>
 		</Layout>

@@ -21,7 +21,7 @@ function BlogSummary({ post, component, ...props }: BlogSummaryProps) {
 					</Link>
 				</Box>
 			</Typography>
-			<Typography variant="h5" component="h4">
+			<Typography variant="h6" component="h4">
 				{post.frontmatter.subtitle}
 			</Typography>
 			<Typography variant="body1" color="textSecondary" gutterBottom>
