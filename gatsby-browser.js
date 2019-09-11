@@ -8,6 +8,8 @@
 
 // theme for code highlighting
 require('./src/assets/prism-nord.css');
+// theme for katex
+require('katex/dist/katex.min.css');
 
 import React from 'react';
 import PropTypes from 'prop-types';
