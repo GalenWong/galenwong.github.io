@@ -16,7 +16,8 @@ function NavBar(props: ComponentProps<'header'>) {
 				</Box>
 			</Typography>
 			<Typography variant="body1">
-				Personal Blog by Galen Wong
+				Personal Blog
+				by <Link to="/about"> Galen Wong </Link>
 			</Typography>
 		</header>
 	);
