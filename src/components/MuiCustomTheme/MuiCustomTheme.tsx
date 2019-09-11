@@ -71,7 +71,8 @@ const GlobalStyles = withStyles((theme: Theme) => {
 			// don't use h6
 			p: {
 				...theme.typography.body1,
-				margin: theme.spacing(4, 0)
+				margin: theme.spacing(4, 0),
+				lineHeight: 1.75
 			},
 			// prism js inline code
 			':not(pre) > code[class*="language-"]': {
@@ -106,6 +107,10 @@ const GlobalStyles = withStyles((theme: Theme) => {
 				paddingLeft: '0.75em',
 				borderLeft: '0.25em solid #d8dee9',
 				minWidth: 'fit-content'
+			},
+			'.katex-display': {
+				// enable scroll
+				overflow: 'auto'
 			}
 		}
 	});

@@ -41,7 +41,7 @@ stages of a programmer, from arrogance to a
 self-realization of ignorance. Hopefully I am at the 
 coordinate where I have seen enough to know how much 
 I still don't know. But I am also semi-capable of 
-quickly build a blog now. 
+quickly building a blog now. 
 
 I am also 
 [buddist (佛系, not actually referring to the religion)](https://www.straitstimes.com/asia/east-asia/keep-calm-and-be-average-chinas-unambitious-buddhist-youth) 
@@ -61,7 +61,7 @@ is about to start. You can always find a job description
 for software engineering that includes some line that
 resembles:
 
-> $\textit{Having a frequently updated technical blog is a plus.}$
+> _Having a frequently updated technical blog is a plus._
 
 
 Honestly, I could have written a technical blog on 
@@ -72,7 +72,7 @@ user-friendly reading experience, SEO, and ultimately
 exposure. Emotion really beats rationality here. I just really
 wants my own customizable blog, with my own styles.
 
-#### Some ~~Bugs~~ Features of this Blog (Semi-technical)
+#### Some ~~Bugs~~ Features of this Blog
 
 This site is built with [Gatsby](https://www.gatsbyjs.org/).
 I learnt it through [a technical project](https://github.com/uclaacm/hack.uclaacm.com)
@@ -132,3 +132,20 @@ of a greater audience outreach), with occasional
 Chinese words. I will try to attach some links or explain
 them when they appears. If I feel like it, pure Chinese 
 content can also appear.
+
+#### About the Name "In the Middle 站中間。"
+
+I don't know. The name just looks very 文青 (histper? I found 
+some translations online call it "hispter". From my experience,
+it is not a perfect translation for it. But you can take it 
+for now). With the Noto Serif TC font, it just looks kinda 
+cool. 
+
+After I cool off my imaginative association of my blog total 
+to hipsterism, I decide to "empower" it with an interpretation.
+I often find myself stuck in the middle of things: cultures,
+politics, geographical location… I don't really want to 
+talk about those conflicts here. The Chinese part of the title 
+"站中間" means "standing in the middle". I wish this blog to 
+be a comfort zone for myself where my thought can stand firmly 
+when I am "in the middle". 
