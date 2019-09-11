@@ -88,7 +88,7 @@ function About() {
 			<p>
 				<strong>Photography: </strong>
 				I like it a lot when I feel like it,
-				meaning my schedule is not filled with C/C++
+				meaning when my schedule is not filled with C/C++
 				assignment. You can find me and my work on insta {` `}
 				<Aext href="https://www.instagram.com/wonggalen/">@wonggalen</Aext>.
 				I actually do free grad photo shoot for people, only
