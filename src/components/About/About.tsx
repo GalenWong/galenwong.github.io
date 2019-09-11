@@ -45,6 +45,9 @@ function About() {
 	const Quote = ({ children }: ComponentProps<'h5'>) =>
 		<h5><blockquote><i>{ children }</i></blockquote></h5>;
 
+	const Aext = ({ children, ...aProps }: ComponentProps<'a'>) =>
+		<a target="_blank" rel="noreferrer noopener" {...aProps}>{children}</a>;
+
 	return (
 		<article>
 			<Title>
@@ -77,17 +80,17 @@ function About() {
 				It is hard to find home cooked style food
 				in LA, despite the great food scene in Sawtelle.
 				However, my favorite supermarket is the {` `}
-				<a href="https://www.facebook.com/Nijiya-Market-Sawtelle-West-La-276513139034965/">
+				<Aext href="https://www.facebook.com/Nijiya-Market-Sawtelle-West-La-276513139034965/">
 					Nijiya
 					in Sawtelle
-				</a>.
+				</Aext>.
 			</p>
 			<p>
 				<strong>Photography: </strong>
 				I like it a lot when I feel like it,
 				meaning my schedule is not filled with C/C++
 				assignment. You can find me and my work on insta {` `}
-				<a href="https://www.instagram.com/wonggalen/">@wonggalen</a>.
+				<Aext href="https://www.instagram.com/wonggalen/">@wonggalen</Aext>.
 				I actually do free grad photo shoot for people, only
 				when I feel like it.
 				If you want to model or want some stylish photo, hit me up
@@ -98,66 +101,66 @@ function About() {
 				My music taste mutates.
 				But right now, the Taiwanese indies are my fav.
 				An non exhaustive list includes: {` `}
-				<a href="https://www.youtube.com/watch?v=kCHMkUSNHKw">
+				<Aext href="https://www.youtube.com/watch?v=kCHMkUSNHKw">
 					Sunset Rollercoaster 日落飛車
-				</a>,{` `}
-				<a href="https://www.youtube.com/watch?v=3Y0Ut5ozaKs">
+				</Aext>,{` `}
+				<Aext href="https://www.youtube.com/watch?v=3Y0Ut5ozaKs">
 					茄子蛋
-				</a>,{` `}
-				<a href="https://www.youtube.com/watch?v=o5muvc-LOlA">
+				</Aext>,{` `}
+				<Aext href="https://www.youtube.com/watch?v=o5muvc-LOlA">
 					吿五人
-				</a>,{` `}
-				<a href="https://www.youtube.com/watch?v=Vf1bAv_ZDAs">
+				</Aext>,{` `}
+				<Aext href="https://www.youtube.com/watch?v=Vf1bAv_ZDAs">
 					好樂團
-				</a>,{` `}
-				<a href="https://www.youtube.com/watch?v=NbNPJr_0tqA">
+				</Aext>,{` `}
+				<Aext href="https://www.youtube.com/watch?v=NbNPJr_0tqA">
 					老王樂隊
-				</a>,{` `}
-				<a href="https://www.youtube.com/watch?v=kZecE9AeELI">
+				</Aext>,{` `}
+				<Aext href="https://www.youtube.com/watch?v=kZecE9AeELI">
 					deca joins
-				</a>,{` `}
-				<a href="https://www.youtube.com/watch?v=HqmpIQ9l-uA">
+				</Aext>,{` `}
+				<Aext href="https://www.youtube.com/watch?v=HqmpIQ9l-uA">
 					草東沒有派對
-				</a>…
+				</Aext>…
 				{` Other than these, there are those that cannot be
 				classified in the Taiwanese indie's category: `}
-				<a href="https://www.youtube.com/watch?v=3ad4NsEy1tg">
+				<Aext href="https://www.youtube.com/watch?v=3ad4NsEy1tg">
 					ポルカドットスティングレイ
 					polkadot stingray
-				</a>,{` `}
-				<a href="https://www.youtube.com/watch?v=cK3NMZAUKGw">
+				</Aext>,{` `}
+				<Aext href="https://www.youtube.com/watch?v=cK3NMZAUKGw">
 					Babymetal
-				</a>,{` `}
-				<a href="https://www.youtube.com/watch?v=q2zj74iK1MI">
+				</Aext>,{` `}
+				<Aext href="https://www.youtube.com/watch?v=q2zj74iK1MI">
 					房東的貓
-				</a>,{` `}
-				<a href="https://www.youtube.com/watch?v=YJfHuATJYsQ">
+				</Aext>,{` `}
+				<Aext href="https://www.youtube.com/watch?v=YJfHuATJYsQ">
 					Jay Chou 周杰倫
-				</a>,{` `}
-				<a href="https://www.youtube.com/watch?v=zkNzxsaCunU">
+				</Aext>,{` `}
+				<Aext href="https://www.youtube.com/watch?v=zkNzxsaCunU">
 					米津玄師
-				</a>,{` `}
-				<a href="https://www.youtube.com/watch?v=Gxdvg5zqjkc">
+				</Aext>,{` `}
+				<Aext href="https://www.youtube.com/watch?v=Gxdvg5zqjkc">
 					萬能青年旅店
-				</a>…
+				</Aext>…
 			</p>
 			<p>
 				<strong>School: </strong>
 				I think the best part about UCLA is probably
 				ACM Hack. I got to teach {` `}
-				<a href="https://github.com/uclaacm/hackschool-f18">
+				<Aext href="https://github.com/uclaacm/hackschool-f18">
 					some web dev
-				</a>
+				</Aext>
 				,{` `}
-				<a href="https://github.com/uclaacm/learn.py-s19">
+				<Aext href="https://github.com/uclaacm/learn.py-s19">
 					some Python
-				</a>
+				</Aext>
 				,{` `}
-				<a href="https://hoth.splashthat.com">
-					organized some hackathons
-				</a>
+				<Aext href="https://hoth.splashthat.com">
+					organize some hackathons
+				</Aext>
 				,{` `}
-				and met some amazing people.
+				and meet some amazing people.
 			</p>
 		</article>
 	);

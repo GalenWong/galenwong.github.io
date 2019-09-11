@@ -5,24 +5,25 @@ import { Theme } from '@material-ui/core';
 import FixedContainer from '../FixedContainer/FixedContainer';
 import NavBar from '../NavBar/NavBar';
 import FloatingLightDarkFab from '../FloatingLightDarkFab/FloatingLightDarkFab';
+import FooterBar from '../FooterBar/FooterBar';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	navbar: {
 		marginBottom: theme.spacing(8)
+	},
+	footer: {
+		marginTop: theme.spacing(8)
 	}
 }));
 
-const PaddedNavBar = () => {
-	const classes = useStyles();
-	return <NavBar className={classes.navbar} />;
-};
-
 function Layout({ children }: ComponentProps<'div'>) {
+	const classes = useStyles();
 	return (
 		<>
 		<FixedContainer>
-			<PaddedNavBar />
+			<NavBar className={classes.navbar} />
 			{children}
+			<FooterBar className={classes.footer} />
 		</FixedContainer>
 		<FloatingLightDarkFab />
 		</>

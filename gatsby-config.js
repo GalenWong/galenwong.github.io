@@ -41,6 +41,13 @@ module.exports = {
 			}
 		},
 		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/src/data/resumes`,
+				name: 'resumes'
+			}
+		},
+		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
 				name: `gatsby-starter-default`,
