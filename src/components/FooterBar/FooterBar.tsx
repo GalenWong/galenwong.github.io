@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 
 function FooterBar(props: ComponentProps<'p'>) {
 	const resumes = useStaticQuery(graphql`
@@ -27,6 +27,10 @@ function FooterBar(props: ComponentProps<'p'>) {
 			<Aext href="https://github.com/GalenWong">github</Aext>
 			{` • `}
 			<Aext href="https://www.instagram.com/wonggalen/">insta</Aext>
+			{` • `}
+			<a href="mailto:wonggalen1999@gmail.com">wonggalen1999@gmail.com</a>
+			{` • `}
+			<Link to="/about">about</Link>
 		</p>
 	);
 }

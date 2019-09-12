@@ -50,33 +50,36 @@ const GlobalStyles = withStyles((theme: Theme) => {
 			},
 			h1: {
 				...theme.typography.h2,
-				margin: theme.spacing(4, 0)
+				margin: theme.spacing(3, 0)
 			},
 			h2: {
 				...theme.typography.h3,
-				margin: theme.spacing(4, 0)
+				margin: theme.spacing(3, 0)
 			},
 			h3: {
 				...theme.typography.h4,
-				margin: theme.spacing(4, 0)
+				margin: theme.spacing(3, 0)
 			},
 			h4: {
 				...theme.typography.h5,
-				margin: theme.spacing(4, 0)
+				margin: theme.spacing(3, 0)
 			},
 			h5: {
 				...theme.typography.h6,
-				margin: theme.spacing(4, 0)
+				margin: theme.spacing(3, 0)
 			},
 			// don't use h6
 			p: {
 				...theme.typography.body1,
-				margin: theme.spacing(4, 0),
+				margin: theme.spacing(3, 0),
 				lineHeight: 1.75
+			},
+			li: {
+				...theme.typography.body1
 			},
 			// prism js inline code
 			':not(pre) > code[class*="language-"]': {
-				fontSize: theme.typography.body1.fontSize
+				fontSize: 'inherit'
 			},
 			a: {
 				color: mainColor,
@@ -111,6 +114,13 @@ const GlobalStyles = withStyles((theme: Theme) => {
 			'.katex-display': {
 				// enable scroll
 				overflow: 'auto'
+			},
+			'.gatsby-remark-autolink-headers-a-tags': {
+				// remove box shadow on auto linked headers
+				boxShadow: 'none',
+				'&> svg': {
+					fill: theme.palette.primary.main
+				}
 			}
 		}
 	});
