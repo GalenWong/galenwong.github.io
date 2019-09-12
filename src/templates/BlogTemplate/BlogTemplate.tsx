@@ -5,6 +5,7 @@ import BlogPost from '../../components/BlogPost/BlogPost';
 import Layout from '../../components/Layout/Layout';
 import { Typography, Theme } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/styles';
+import SEO from '../../components/SEO/SEO';
 
 export const pageQuery = graphql`
 	query BlogPostByPath($slug: String!) {
@@ -60,6 +61,7 @@ function BlogTemplate({ data, pageContext }: BlogTemplateProps) {
 	const { next, prev } = pageContext;
 	return (
 		<Layout>
+			<SEO article title={frontmatter.title} description={frontmatter.subtitle} />
 			<article>
 				<header>
 					<Typography component="h1" variant="h2" gutterBottom>{frontmatter.title}</Typography>

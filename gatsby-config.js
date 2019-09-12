@@ -2,7 +2,9 @@ module.exports = {
 	siteMetadata: {
 		title: `In the Middle 站中間`,
 		description: `Personal Blog by Galen Wong`,
-		author: `Galen Wong`
+		author: `Galen Wong`,
+		url: `https://galenwong.github.io`,
+		titleTemplate: '%s | In the Middle'
 	},
 	plugins: [
 		`gatsby-plugin-material-ui`,

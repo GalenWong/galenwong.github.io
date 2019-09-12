@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import Layout from '../../components/Layout/Layout';
 import BlogSummary from '../../components/BlogSummary/BlogSummary';
 import { makeStyles, createStyles, Theme } from '@material-ui/core';
+import SEO from '../../components/SEO/SEO';
 
 export const pageQuery = graphql`
 {
@@ -55,6 +56,7 @@ function HomePageTemplate({ data }: HomePageTemplateProps) {
 
 	return (
 		<Layout>
+			<SEO />
 			{listOfBlogs}
 		</Layout>
 	);
