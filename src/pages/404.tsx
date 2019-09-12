@@ -1,9 +1,14 @@
 import React from 'react';
+import Layout from '../components/Layout/Layout';
+import { Link } from 'gatsby';
 
 const NotFoundPage = () =>
-	<>
-		<h1>NOT FOUND</h1>
-		<p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-	</>;
+	<Layout>
+		<h3> This page does not exist in the middle. </h3>
+		<p>
+			<Link to="/">{`Go back to "the middle"`}</Link>
+			{`, before you get too lost…`}
+		</p>
+	</Layout>;
 
 export default NotFoundPage;
