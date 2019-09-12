@@ -103,6 +103,8 @@ const GlobalStyles = withStyles((theme: Theme) => {
 				borderRadius: theme.shape.borderRadius,
 				// this prevents iOS Safari from scaling our code with a big view port
 				'-webkit-text-size-adjust': 'none',
+				// smooth scrolling on phones
+				'-webkit-overflow-scrolling': 'touch',
 				'& > pre': {
 					minWidth: '100%',
 					margin: 0,
@@ -120,7 +122,9 @@ const GlobalStyles = withStyles((theme: Theme) => {
 			},
 			'.katex-display': {
 				// enable scroll
-				overflow: 'auto'
+				overflow: 'auto',
+				// smooth scrolling on phones
+				'-webkit-overflow-scrolling': 'touch'
 			},
 			'.gatsby-remark-autolink-headers-a-tags': {
 				// remove box shadow on auto linked headers
