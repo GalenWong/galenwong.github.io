@@ -42,7 +42,8 @@ const myTheme = (isDark: boolean) => responsiveFontSizes(createMuiTheme({
 }));
 
 const GlobalStyles = withStyles((theme: Theme) => {
-	const mainColor = theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.primary.light;
+	const isLight = theme.palette.type === 'light';
+	const mainColor = isLight ? theme.palette.primary.main : theme.palette.primary.light;
 	return createStyles({
 		'@global': {
 			body: {
@@ -79,7 +80,11 @@ const GlobalStyles = withStyles((theme: Theme) => {
 			},
 			// prism js inline code
 			':not(pre) > code[class*="language-"]': {
-				fontSize: 'inherit'
+				fontSize: 'inherit',
+				// light and dark mode different highlighting
+				transition: theme.transitions.create(['background', 'color']),
+				background: isLight ? 'var(--nord6)' : undefined,
+				color: isLight ? 'var(--nord0)' : undefined
 			},
 			a: {
 				color: mainColor,

@@ -284,9 +284,9 @@ check the other block post I linked above.
 
 But looking at the code above, 
 I have some more questions to think about now. 
-For instance, in the `js±t.getOffset` helper function, 
-which is used by `js±t.asdf` decoder, the logic is written
-in the ternary operator `js±<cond>?<then>:<else>`.
+For instance, in the `t.getOffset` helper function, 
+which is used by `t.asdf` decoder, the logic is written
+in the ternary operator `<cond>?<then>:<else>`.
 It is not only one condition, it is multiple ternary
 condition aggregated together! 
 Why is it written in this way instead of a more-readable

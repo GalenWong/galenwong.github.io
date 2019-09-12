@@ -177,9 +177,9 @@ is always the main event loop function.
 So we can check if the stack contains only the main 
 event loop function.
 But what about the code that is under perhaps a 
-`js±setTimeout` call? What about the event listener code? 
+`setTimeout` call? What about the event listener code? 
 For instance, what if all the code are put under 
-`js±window.onload`?
+`window.onload`?
 
 
 Yes, this is getting complicated. That is exactly the 
@@ -201,7 +201,7 @@ It is a well-known problem that currently has no
 solution. From my algorithm class (CS180), to prove
 a problem is unsolvable (in some polynomial time), 
 we transform the problem into another known unsolvable
-problem. Therefore, we transform our Ajax problem
+problem. Therefore, analogous, we transform our Ajax problem
 into the halting problem.
 
 In fact, what we are trying to do is predict when all
@@ -214,7 +214,7 @@ while(true)
     Ajax();
 ```
 
-That's it. The `js±Ajax()` function is being put into
+That's it. The `Ajax()` function is being put into
 an infinite loop. Then, we ask question 3 again. 
 We obtain a case where Ajax call cannot terminate. 
 One might question if real production code uses an
@@ -230,7 +230,7 @@ This logically is equivalent to an infinite loop.
 These types of pattern occur when the frontend has to
 constantly poll from the backend for live updated
 information. Libraries such as 
-[Socket.io](https://socket.io/) are built for this
+[Socket.IO](https://socket.io/) are built for this
 exact reason.
 
 One way to think about this is that a machine can never
@@ -257,11 +257,11 @@ changes and notice the rate of change is slowing down.
 I have not really thought through how to measure the 
 impact of Ajax on the page.
 
-My initial idea is to use the `none±diff` 
+My initial idea is to use the `diff` 
 (read the [man page](http://man7.org/linux/man-pages/man1/diff.1.html))
 program to count the number of lines changed on the page.
 There is a problem of minified file. It does not 
-really work well with `none±diff` since everything 
+really work well with `diff` since everything 
 can possibly be on the same line. 
 One way to circumvent is to use 
 [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) 
@@ -274,3 +274,27 @@ we will see.
 
 In short, predicting if all Ajax has ended is an 
 unsolvable problem that we just have to ballpark.
+
+#### Afterthoughts (September 2019)
+
+This post is written at the beginning of my internship.
+Over the course of it, I also learned how to use 
+[puppeteer](https://github.com/GoogleChrome/puppeteer/),
+which in my humble opinion is better than selenium. 
+Puppeteer provides an API `waitForNavigation` 
+(read docs [here](https://pptr.dev/#?product=Puppeteer&version=v1.19.0&show=api-pagewaitfornavigationoptions))
+which has an option for us to wait until the "network is 
+idle". Taken straight from the documentation, network idle 
+is defined as:
+
+- `networkidle0` - consider navigation to be finished when there are no more than 0 network connections for at least 500 ms.
+- `networkidle2` - consider navigation to be finished when there are no more than 2 network connections for at least 500 ms.
+
+This is indeed a much smarter and more efficieny way compared
+to using implicit wait. However, my point is still valid as 
+in that this does not solve the halting problem. Puppeteer
+is not checking to see when the network __will__ be idle in
+the future, but check if the network is __currently__ idle 
+and has been __idle__ for the past 500 ms.
+For the sake of efficiency, however, if I had to do it again,
+I would do it in puppeteer instead of selenium. 
