@@ -1,5 +1,5 @@
 
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, useEffect } from 'react';
 import Helmet from 'react-helmet';
 import { createMuiTheme, responsiveFontSizes, Theme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -47,7 +47,16 @@ const GlobalStyles = withStyles((theme: Theme) => {
 	return createStyles({
 		'@global': {
 			body: {
-				transition: theme.transitions.create('background')
+				transition: theme.transitions.create('background'),
+				'& a': {
+					color: mainColor,
+					textDecoration: 'none',
+					boxShadow: `inset 0px -1px 0px 0px ${mainColor}`,
+					transition: theme.transitions.create('box-shadow'),
+					'&:hover': {
+						boxShadow: `inset 0px 0px 0px 0px ${mainColor}`
+					}
+				}
 			},
 			h1: {
 				...theme.typography.h2,
@@ -85,15 +94,6 @@ const GlobalStyles = withStyles((theme: Theme) => {
 				transition: theme.transitions.create(['background', 'color']),
 				background: isLight ? 'var(--nord6)' : undefined,
 				color: isLight ? 'var(--nord0)' : undefined
-			},
-			a: {
-				color: mainColor,
-				textDecoration: 'none',
-				boxShadow: `inset 0px -1px 0px 0px ${mainColor}`,
-				transition: theme.transitions.create('box-shadow'),
-				'&:hover': {
-					boxShadow: `inset 0px 0px 0px 0px ${mainColor}`
-				}
 			},
 			// code highlight block
 			'.gatsby-highlight': {
@@ -140,6 +140,10 @@ const ChildrenWithGlobalStyle = ({ children }: ComponentProps<'div'>) => {
 };
 
 function MuiCustomTheme({ children, darkMode, ...props }: MuiCustomThemeProps) {
+	// take away SSR rendered mode;
+	useEffect(() => {
+		document.body.className = '';
+	});
 	return (
 		<ThemeProvider theme={myTheme(darkMode)} {...props}>
 			<Head />

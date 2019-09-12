@@ -7,10 +7,11 @@
 // You can delete this file if you're not using it
 
 // theme for code highlighting
-require('./src/assets/prism-nord.css');
+import './src/assets/prism-nord.css';
 // theme for katex
-require('katex/dist/katex.min.css');
-
+import 'katex/dist/katex.min.css';
+// for better SSRed pages
+import './src/assets/global.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import ThemeTopLevelProvider from './src/components/ThemeTopLevelProvider/ThemeTopLevelProvider';
