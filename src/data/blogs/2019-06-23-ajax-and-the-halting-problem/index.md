@@ -190,7 +190,7 @@ perfect solution.
 Instead of blindly looking for a solution,
 why don't we consider if the problem is solvable at all?
 
-$\large\textbf{I am going to argue there is no solution.}$
+<h4><strong>I am going to argue there is no solution.</strong></h4>
 
 I claim that a solution does not exist.
 

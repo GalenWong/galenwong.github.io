@@ -54,7 +54,10 @@ How does that work? When you click on the element,
 it opens a new tab. Then, it takes you to a URL that 
 belongs to TripAdvisor. For instance,
  
-`https://www.tripadvisor.com/Commerce?p=TABAIndependentHotels&src=0&from=Hotel_Review&...` (omitted for readability)
+```
+https://www.tripadvisor.com/Commerce?p=TABAIndependentHotels&src=0&from=Hotel_Review&...
+(omitted for readability)
+```
 
 After that, you get redirected to the actual website. 
 Curiously, the way that the redirection is done is 
@@ -118,7 +121,10 @@ The problem is still not fully solved yet!
 How did we get the TripAdvisor link to get redirected 
 anyway? Aka…
 
-`https://www.tripadvisor.com/Commerce?p=TABAIndependentHotels&src=0&geo=652907&from=Hotel_Review&...` (How do we get this?)
+```
+https://www.tripadvisor.com/Commerce?p=TABAIndependentHotels&src=0&geo=652907&from=Hotel_Review&... 
+(How do we get this?)
+```
 
 ![pika-how.png](pika-how.png)
 
@@ -178,8 +184,10 @@ function called `t.asdf`.
 We step out of the `t.asdf` function and found that 
 there is a return value of 
 
-`/Commerce?p=TABAIndependentHotels&src=0&geo=652907&from=Hotel_Review&area=&slot=1&`
-(omitted for readability).
+```
+/Commerce?p=TABAIndependentHotels&src=0&geo=652907&from=Hotel_Review&area=&slot=1&...
+(omitted for readability)
+```
 
 If you prepend `www.tripadvisor.com`, that is exactly
 the webpage that returns the redirection script!

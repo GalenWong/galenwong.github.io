@@ -101,6 +101,8 @@ const GlobalStyles = withStyles((theme: Theme) => {
 				marginRight: '-1em',
 				overflow: 'auto',
 				borderRadius: theme.shape.borderRadius,
+				// this prevents iOS Safari from scaling our code with a big view port
+				'-webkit-text-size-adjust': 'none',
 				'& > pre': {
 					minWidth: '100%',
 					margin: 0,
