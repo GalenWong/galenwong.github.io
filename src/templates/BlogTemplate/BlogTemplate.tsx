@@ -44,6 +44,9 @@ interface BlogTemplateProps {
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	navBar: {
+		textAlign: 'center'
+	},
+	nextPrevBar: {
 		display: 'flex',
 		justifyContent: 'space-between',
 		margin: theme.spacing(4, 0),
@@ -74,8 +77,11 @@ function BlogTemplate({ data, pageContext }: BlogTemplateProps) {
 				</header>
 				<BlogPost html={html} />
 				<nav className={classes.navBar}>
-					{prev ? <Link to={prev.path}>← {prev.title}</Link> : null}
-					{next ? <Link to={next.path} className={classes.rightLink}>{next.title} →</Link> : null}
+					<div className={classes.nextPrevBar}>
+						{prev ? <Link to={prev.path}>← {prev.title}</Link> : null}
+						{next ? <Link to={next.path} className={classes.rightLink}>{next.title} →</Link> : null}
+					</div>
+					<Link to="/">Go Back Home, the Middle</Link>
 				</nav>
 			</article>
 		</Layout>

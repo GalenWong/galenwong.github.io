@@ -55,7 +55,7 @@ function HomePageTemplate({ data }: HomePageTemplateProps) {
 		<BlogSummary className={classes.blogItem} post={post} key={post.id} />);
 
 	return (
-		<Layout>
+		<Layout showTopInfo>
 			<SEO />
 			{listOfBlogs}
 		</Layout>

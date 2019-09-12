@@ -6,7 +6,7 @@ import SEO from '../components/SEO/SEO';
 
 function AboutPage() {
 	return (
-		<Layout>
+		<Layout showTopInfo>
 			<SEO title="About Galen" description="Galen is weird..." />
 			<About />
 		</Layout>

@@ -9,6 +9,7 @@ import FooterBar from '../FooterBar/FooterBar';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	navbar: {
+		marginTop: 0,
 		marginBottom: theme.spacing(8)
 	},
 	footer: {
@@ -16,14 +17,24 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	}
 }));
 
-function Layout({ children }: ComponentProps<'div'>) {
+interface LayoutProps extends ComponentProps<'div'>{
+	showTopInfo?: boolean;
+	showBottomInfo?: boolean;
+}
+
+function Layout({
+	children,
+	showTopInfo = false,
+	showBottomInfo = true
+}: LayoutProps) {
 	const classes = useStyles();
 	return (
 		<>
 		<FixedContainer>
-			<NavBar className={classes.navbar} />
+			<NavBar className={ showTopInfo ? undefined : classes.navbar} />
+			{ showTopInfo ? <nav><FooterBar className={classes.navbar} /></nav> : null }
 			{children}
-			<FooterBar className={classes.footer} />
+			{ showBottomInfo ? <FooterBar className={classes.footer} /> : null }
 		</FixedContainer>
 		<FloatingLightDarkFab />
 		</>
