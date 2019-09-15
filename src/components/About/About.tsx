@@ -7,7 +7,7 @@ const introStr = `
 Hi, my name is Galen Wong.
 I am a UCLA Computer Science undergrad.
 I mostly do work in JavaScript,
-especially frontend developemnt with React.
+especially frontend development with React.
 I also works with Go, C/C++ (learnt from school),
 and Python (my introductory language).
 `;
@@ -100,7 +100,7 @@ function About() {
 				<strong>Music: </strong>
 				My music taste mutates.
 				But right now, the Taiwanese indies are my fav.
-				An non exhaustive list includes: {` `}
+				A non-exhaustive list includes: {` `}
 				<Aext href="https://www.youtube.com/watch?v=kCHMkUSNHKw">
 					Sunset Rollercoaster 日落飛車
 				</Aext>,{` `}
