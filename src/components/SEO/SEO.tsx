@@ -47,6 +47,7 @@ function SEO({
 			{seo.description &&
 				<meta property="og:description" content={seo.description} />
 			}
+			<html lang="en" />
 		</Helmet>
 	);
 }

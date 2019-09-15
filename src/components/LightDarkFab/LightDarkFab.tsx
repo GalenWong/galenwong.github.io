@@ -15,6 +15,7 @@ function LightDarkFab(props: FabProps) {
 				color={theme === 'dark' ? 'default' : 'primary'}
 				size="medium"
 				onClick={() => changeTheme(!(theme === 'dark'))}
+				aria-label="Toggle light or dark mode"
 				{...props}
 			>
 				{ theme === 'dark' ? <NightIcon /> : <SunnyIcon /> }
