@@ -149,7 +149,8 @@ function MuiCustomTheme({ children, darkMode, ...props }: MuiCustomThemeProps) {
 	// take away SSR rendered mode;
 	useEffect(() => {
 		document.body.className = '';
-	});
+	}, []);
+
 	return (
 		<ThemeProvider theme={myTheme(darkMode)} {...props}>
 			<Head />

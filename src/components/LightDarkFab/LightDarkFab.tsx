@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Fab } from '@material-ui/core';
+import { Fab, NoSsr } from '@material-ui/core';
 import LightDarkContext from '../LightDarkContext/LightDarkContext';
 
 import SunnyIcon from '@material-ui/icons/WbSunny';
@@ -8,15 +8,18 @@ import { FabProps } from '@material-ui/core/Fab';
 
 function LightDarkFab(props: FabProps) {
 	const { theme, changeTheme } = useContext(LightDarkContext);
+
 	return (
-		<Fab
-			color={theme === 'dark' ? 'default' : 'primary'}
-			size="medium"
-			onClick={() => changeTheme(!(theme === 'dark'))}
-			{...props}
-		>
-			{ theme === 'dark' ? <NightIcon /> : <SunnyIcon /> }
-		</Fab>
+		<NoSsr>
+			<Fab
+				color={theme === 'dark' ? 'default' : 'primary'}
+				size="medium"
+				onClick={() => changeTheme(!(theme === 'dark'))}
+				{...props}
+			>
+				{ theme === 'dark' ? <NightIcon /> : <SunnyIcon /> }
+			</Fab>
+		</NoSsr>
 	);
 }
 
