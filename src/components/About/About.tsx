@@ -63,13 +63,13 @@ function About() {
 			</Title>
 			<p>
 				What I am writing in this section are facts about me
-				as of September 11, 2019.
-				These are facts about the 2019-09-11 me that I will not
+				as of September 12, 2019.
+				These are facts about the 2019-09-12 me that I will not
 				need to update these in the future.
 				However, they might not apply to the current me.
 			</p>
 			<Quote>
-				As of September 11<sup>th</sup>, 2019…
+				As of September 12<sup>th</sup>, 2019…
 			</Quote>
 			<p>
 				<strong>Cooking: </strong>
