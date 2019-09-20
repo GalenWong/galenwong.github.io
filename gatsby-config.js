@@ -4,6 +4,7 @@ module.exports = {
 		description: `Personal Blog by Galen Wong`,
 		author: `Galen Wong`,
 		url: `https://galenwong.github.io`,
+		siteUrl: `https://galenwong.github.io`,
 		titleTemplate: '%s | In the Middle'
 	},
 	plugins: [
@@ -93,6 +94,7 @@ module.exports = {
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.dev/offline
 		// `gatsby-plugin-offline`,
+		`gatsby-plugin-sitemap`,
 		{
 			resolve: `gatsby-plugin-google-analytics`,
 			options: {
