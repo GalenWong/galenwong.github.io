@@ -92,7 +92,10 @@ the object to a string, and use the alphabetical order.
 When I was new to JavaScript, I got super confused about
 why `[1, 2, 12].sort()` gives me `[1, 12, 2]`.
 
-TODO: insert now you know image.
+<div align=center>
+
+![The more you know meme](images/the-more-you-know.gif)
+</div>
 
 We can overwrite this behavior by providing a custom
 comparison function. If you have worked with sorting
