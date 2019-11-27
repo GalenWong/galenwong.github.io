@@ -87,6 +87,9 @@ const GlobalStyles = withStyles((theme: Theme) => {
 			li: {
 				...theme.typography.body1
 			},
+			img: {
+				maxWidth: '100%'
+			},
 			// prism js inline code
 			':not(pre) > code[class*="language-"]': {
 				fontSize: 'inherit',
