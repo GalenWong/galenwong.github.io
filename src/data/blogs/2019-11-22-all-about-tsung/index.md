@@ -24,15 +24,15 @@ In this article, I will describe how I set up Tsung
 on my local (macOS), and how I used `tsung-recorder` to work
 with image upload. 
 
-- [Installing Tsung](#installing-tsung)
-- [Configuring Test XML Script](#configuring-test-xml-script)
-- [Problem with `multipart/form-data`](#problem-with-multipartform-data)
-- [Tsung Proxy Recorder](#tsung-proxy-recorder)
-  - [What Is A Proxy?](#what-is-a-proxy)
-  - [Using Tsung Recorder](#using-tsung-recorder)
-  - [Configure macOS to Use Proxy](#configure-macos-to-use-proxy)
-  - [Bypassing Chrome's `localhost` No Proxy Policy](#bypassing-chromes-localhost-no-proxy-policy)
-- [Gotchas in Test Script](#gotchas-in-test-script)
++ [Installing Tsung](#installing-tsung)
++ [Configuring Test XML Script](#configuring-test-xml-script)
++ [Problem with `multipart/form-data`](#problem-with-multipartform-data)
++ [Tsung Proxy Recorder](#tsung-proxy-recorder)
+  + [What Is A Proxy?](#what-is-a-proxy)
+  + [Using Tsung Recorder](#using-tsung-recorder)
+  + [Configure macOS to Use Proxy](#configure-macos-to-use-proxy)
+  + [Bypassing Chrome's `localhost` No Proxy Policy](#bypassing-chromes-localhost-no-proxy-policy)
++ [Gotchas in Test Script](#gotchas-in-test-script)
 
 ## Installing Tsung
 
@@ -188,13 +188,6 @@ Note, if you navigate to pages that uses `https`, the
 traffic cannot be recorded. Can you think of why a 
 simple HTTP proxy server cannot use HTTPS? 
 
-Now, you are very excited to hit the endpoint on 
-`localhost:3000` in your browser, and have tsung-recorder
-to record your complex multipart form POST request. 
-But you soon realize that it does not work. 
-Any traffic to `localhost` is not recorded by 
-tsung-recorder. What is the reason?
-
 <details>
 <summary>
 Click to see why
@@ -207,12 +200,13 @@ to forward the request from and to the client.
 There is HTTPS proxy, but `tsung-recorder` is not one of them.
 </details>
 
-### Bypassing Chrome's `localhost` No Proxy Policy
 
-Turns out, Chrome (and Firefox) has a policy where if 
-the host is `localhost`, the browser will not use the proxy.
-Instead, it directly send the request to the port without
-passing it the proxy. Can you think of why?
+Now, you are very excited to hit the endpoint on 
+`localhost:3000` in your browser, and have tsung-recorder
+to record your complex multipart form POST request. 
+But you soon realize that it does not work. 
+Any traffic to `localhost` is not recorded by 
+tsung-recorder. What is the reason?
 
 <details>
 <summary>
@@ -225,6 +219,13 @@ A proxy server might not be on the same machine
 means we are not sending traffic to the web app on our machine.
 
 </details>
+
+### Bypassing Chrome's `localhost` No Proxy Policy
+
+Turns out, Chrome (and Firefox) has a policy where if 
+the host is `localhost`, the browser will not use the proxy.
+Instead, it directly send the request to the port without
+passing it the proxy. Can you think of why?
 
 A way for us to bypass that is to alias the address `127.0.0.1`
 with another domain name. We modify the `/etc/hosts` file.
