@@ -244,7 +244,7 @@ This map represents what is the probability of the number
 If my method was correct, this map should have been
 all ones, or at least values that are close to one.
 But look at the last few indices, the number `1` only
-shows up there with a 0.20% chance. 
+shows up there with a 20% chance. 
 I was wrong, yet I was so confident. 
 Not only is my method slow (sorting has a time complexity of $O(n\log n)$), it is also incorrect and unfair.
 But what went wrong though? 
