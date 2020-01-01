@@ -90,6 +90,11 @@ const GlobalStyles = withStyles((theme: Theme) => {
 			img: {
 				maxWidth: '100%'
 			},
+			blockquote: {
+				position: 'relative',
+				paddingLeft: theme.spacing(2),
+				borderLeft: `0.2em solid ${isLight ? theme.palette.primary.light : theme.palette.primary.dark}`
+			},
 			// prism js inline code
 			':not(pre) > code[class*="language-"]': {
 				fontSize: 'inherit',
