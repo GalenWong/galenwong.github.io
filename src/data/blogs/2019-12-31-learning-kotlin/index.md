@@ -6,13 +6,14 @@ subtitle: "The Traps and Pitfalls"
 
 + [Lambda and Anonymous Functions (A.F.)](#lambda-and-anonymous-functions-af)
   + [`return` from Lambda and A.F.](#return-from-lambda-and-af)
-    + [Explanation](#explanation)
   + [Nested Lambda with Qualified Return](#nested-lambda-with-qualified-return)
   + [Passing Lambda vs A.F. as Argument](#passing-lambda-vs-af-as-argument)
-+ [The Implicit `it` in Lambda](#the-implicit-it-in-lambda)
-+ [Trailing Lambda Shorthand](#trailing-lambda-shorthand)
+  + [The Implicit `it` in Lambda](#the-implicit-it-in-lambda)
+  + [Trailing Lambda Shorthand](#trailing-lambda-shorthand)
 + [`lateinit` Variables](#lateinit-variables)
 + [Inflation](#inflation)
++ [Default Parameters with Inheritance](#default-parameters-with-inheritance)
++ [Default Parameters Evaluation](#default-parameters-evaluation)
 
 This is a blog post will act as a note as for my Kotlin 
 learning. I will document some pitfall that I encountered 
@@ -73,7 +74,7 @@ finished, returning
 ```
 </details>
 
-#### Explanation
+<h4> Explanation</h4>
 
 According the 
 [docs](https://kotlinlang.org/docs/reference/returns.html#return-at-labels), 
@@ -218,7 +219,7 @@ function. It seems to open up doors to very interesting
 programming patterns but I can't come up with anything 
 off the top of my head. 
 
-## The Implicit `it` in Lambda
+### The Implicit `it` in Lambda
 
 This is super weird to me at first but I guess it make
 sense as a short hand. 
@@ -279,7 +280,7 @@ in Kotlin they are `flatMap`, `fold`, and `filter`.
 intArray.filter { it > 0 }
 ```
 
-## Trailing Lambda Shorthand
+### Trailing Lambda Shorthand
 
 In the previous example of `Array.filter` and
 `setOnClickListener`, we see that we can pass lambda to a
@@ -332,3 +333,129 @@ I understand it as parsing the XML file and generating the
 view hierarchy in memory. To draw analogy from the web dev
 domain, it would be to parse the HTML file and generating 
 the actual DOM tree. 
+
+## Default Parameters with Inheritance 
+
+Read the following code snippet. 
+Predict its output to the console. 
+
+```kotlin
+fun main(args: Array<String>) {  
+	val a = A()
+    val b = B()
+    println(a.method())
+    println(b.method())
+}
+
+open class A {
+    open fun method(i: Int = 1): Int {
+        return i
+    }
+}
+
+class B: A() {
+    override fun method(i: Int = 2): Int {
+        return i
+    }
+}
+```
+
+
+<details>
+<summary>Answer</summary>
+
+No, there is no output since this code does not compile. 
+The reason can be found in the 
+[Kotlin docs](https://kotlinlang.org/docs/reference/functions.html#default-arguments).
+Here I quote it.
+
+> Overriding methods always use the same default parameter values as the base method. When overriding a method with default parameter values, the default parameter values must be omitted from the signature.
+
+The compiler error message for this case would be 
+
+```
+An overriding function is not allowed to specify default values for its parameters
+```
+
+</details>
+
+<h4>Discussion</h4>
+
+Initially, I cannot understand the intention of such 
+language design decision. It is not difficult to 
+implement such language feature. The reason for 
+such design is perfectly answered by 
+[this Stack Overflow answer](https://stackoverflow.com/a/37701188).
+The following quote from the answer explain why 
+overriding parent classes' default parameters is bad:
+
+> Callers would not know what the default value is unless they were aware of which implementation they were using, which is of course highly undesirable.
+
+What does it look like in code? Let's assume that 
+the in another parallel universe the Kotlin compiler
+allow us to override the parent classes' default 
+parameters. Therefore the code above compiles. 
+Let's say that we declare a function that takes
+in an object of class `A` as parameter. 
+
+```kotlin
+fun processClassA(obj: A) {
+  return A.method() * 2
+}
+```
+
+When the programmer want to use `A.method` and its
+default parameters, it has to know which implementation
+of `A` is being passed in. The reason for that is that 
+we can also pass an instance of `B` into `processClassA`
+by the principle of OOP. That's why such behavior is 
+undesirable.
+
+Therefore, letting the parent class dictates the default
+parameters is the best choice to make so that programmer
+can reason about their program easier. 
+
+## Default Parameters Evaluation
+
+Predict the output to the console of the following code
+snippet. 
+
+```kotlin
+fun main(args: Array<String>) {  
+    for (_i in 1..10) {
+        whatIsGlobal()
+    }
+}
+
+var global = 0
+
+fun getAndIncGlobal(): Int {
+    global++
+    return global
+}
+
+fun whatIsGlobal(g: Int = getAndIncGlobal()) {
+    println(g)
+}
+```
+
+<details>
+<summary>Answer</summary>
+
+```
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
+This proves that the default parameter expression is 
+evaluated at call time instead of compile time, unlike
+Python.
+</details>
