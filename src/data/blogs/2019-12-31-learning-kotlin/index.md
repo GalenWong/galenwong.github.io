@@ -12,6 +12,7 @@ subtitle: "The Traps and Pitfalls"
 + [The Implicit `it` in Lambda](#the-implicit-it-in-lambda)
 + [Trailing Lambda Shorthand](#trailing-lambda-shorthand)
 + [`lateinit` Variables](#lateinit-variables)
++ [Inflation](#inflation)
 
 This is a blog post will act as a note as for my Kotlin 
 learning. I will document some pitfall that I encountered 
@@ -123,7 +124,8 @@ according to the definitions laid out above.
 
 The property introduces more interesting questions. 
 
-1. What happens if we nest lambdas with inner qualified        return? 
+1. What happens if we nest lambdas with inner qualified 
+   return? 
 2. What if we pass a lambda with qualified return as an 
    argument to a function? Will the behavior differ if we 
    pass an A.F. instead? 
@@ -320,3 +322,13 @@ stricter since it cannot be `null`. It either has a value
 or does not have a value at all.
 
 
+## Inflation
+
+In Android development, the term is used a lot. It means 
+"instantiating a layout XML file into its corresponding 
+`View` objects" (source: 
+[LayoutInflator](https://developer.android.com/reference/android/view/LayoutInflater)).
+I understand it as parsing the XML file and generating the 
+view hierarchy in memory. To draw analogy from the web dev
+domain, it would be to parse the HTML file and generating 
+the actual DOM tree. 
