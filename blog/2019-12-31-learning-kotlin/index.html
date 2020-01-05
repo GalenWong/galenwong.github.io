@@ -52,20 +52,21 @@
 								}
 							} catch (err) {}
 						})()
-					</script><div id="___gatsby"> <!-- --> <div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="MuiBox-root jss7"><div class="MuiContainer-root MuiContainer-maxWidthMd"><header class="jss4"><h4 class="MuiTypography-root MuiTypography-h4 MuiTypography-colorPrimary"><div class="MuiBox-root jss45"><a style="box-shadow:none" href="/"><span style="white-space:nowrap">In the Middle</span> <span style="white-space:nowrap">站中間。</span></a></div></h4><p class="MuiTypography-root MuiTypography-body1">Personal Blog by <a href="/about"> Galen Wong </a></p></header><article><header><h1 class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom">Kotlin Learning Notes</h1><h2 class="MuiTypography-root MuiTypography-h6">The Traps and Pitfalls</h2><p class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary">2019-12-31<!-- --> • <!-- -->8<!-- --> min read</p></header><div><ul>
+					</script><div id="___gatsby"> <!-- --> <div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="MuiBox-root jss7"><div class="MuiContainer-root MuiContainer-maxWidthMd"><header class="jss4"><h4 class="MuiTypography-root MuiTypography-h4 MuiTypography-colorPrimary"><div class="MuiBox-root jss45"><a style="box-shadow:none" href="/"><span style="white-space:nowrap">In the Middle</span> <span style="white-space:nowrap">站中間。</span></a></div></h4><p class="MuiTypography-root MuiTypography-body1">Personal Blog by <a href="/about"> Galen Wong </a></p></header><article><header><h1 class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom">Kotlin Learning Notes</h1><h2 class="MuiTypography-root MuiTypography-h6">The Traps and Pitfalls</h2><p class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary">2019-12-31<!-- --> • <!-- -->10<!-- --> min read</p></header><div><ul>
 <li>
 <p><a href="#lambda-and-anonymous-functions-af">Lambda and Anonymous Functions (A.F.)</a></p>
 <ul>
 <li><a href="#return-from-lambda-and-af"><code class="language-text">return</code> from Lambda and A.F.</a></li>
-<li><a href="#explanation">Explanation</a></li>
 <li><a href="#nested-lambda-with-qualified-return">Nested Lambda with Qualified Return</a></li>
 <li><a href="#passing-lambda-vs-af-as-argument">Passing Lambda vs A.F. as Argument</a></li>
-</ul>
-</li>
 <li><a href="#the-implicit-it-in-lambda">The Implicit <code class="language-text">it</code> in Lambda</a></li>
 <li><a href="#trailing-lambda-shorthand">Trailing Lambda Shorthand</a></li>
+</ul>
+</li>
 <li><a href="#lateinit-variables"><code class="language-text">lateinit</code> Variables</a></li>
 <li><a href="#inflation">Inflation</a></li>
+<li><a href="#default-parameters-with-inheritance">Default Parameters with Inheritance</a></li>
+<li><a href="#default-parameters-evaluation">Default Parameters Evaluation</a></li>
 </ul>
 <p>This is a blog post will act as a note as for my Kotlin
 learning. I will document some pitfall that I encountered
@@ -114,7 +115,7 @@ this is 4
 this is 5
 finished, returning</code></pre></div>
 </details>
-<h4 id="explanation"><a href="#explanation" aria-label="explanation permalink" class="gatsby-remark-autolink-headers-a-tags"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Explanation</h4>
+<h4> Explanation</h4>
 <p>According the
 <a href="https://kotlinlang.org/docs/reference/returns.html#return-at-labels" target="_blank" rel="nofollow noopener noreferrer">docs</a>,
 a “qualified return” allows us to “return from an outer
@@ -234,7 +235,7 @@ return in lambda really makes lambda different from a
 function. It seems to open up doors to very interesting
 programming patterns but I can’t come up with anything
 off the top of my head. </p>
-<h2 id="the-implicit-it-in-lambda"><a href="#the-implicit-it-in-lambda" aria-label="the implicit it in lambda permalink" class="gatsby-remark-autolink-headers-a-tags"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Implicit <code class="language-text">it</code> in Lambda</h2>
+<h3 id="the-implicit-it-in-lambda"><a href="#the-implicit-it-in-lambda" aria-label="the implicit it in lambda permalink" class="gatsby-remark-autolink-headers-a-tags"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Implicit <code class="language-text">it</code> in Lambda</h3>
 <p>This is super weird to me at first but I guess it make
 sense as a short hand. </p>
 <p>What is the output if we executed the following function?</p>
@@ -273,7 +274,7 @@ when you add an listener:</p>
 programming style of <code class="language-text">map</code>, <code class="language-text">reduce</code>, <code class="language-text">filter</code>, but instead
 in Kotlin they are <code class="language-text">flatMap</code>, <code class="language-text">fold</code>, and <code class="language-text">filter</code>. </p>
 <div class="gatsby-highlight" data-language="kt"><pre class="language-kt"><code class="language-kt">intArray.filter { it &gt; 0 }</code></pre></div>
-<h2 id="trailing-lambda-shorthand"><a href="#trailing-lambda-shorthand" aria-label="trailing lambda shorthand permalink" class="gatsby-remark-autolink-headers-a-tags"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Trailing Lambda Shorthand</h2>
+<h3 id="trailing-lambda-shorthand"><a href="#trailing-lambda-shorthand" aria-label="trailing lambda shorthand permalink" class="gatsby-remark-autolink-headers-a-tags"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Trailing Lambda Shorthand</h3>
 <p>In the previous example of <code class="language-text">Array.filter</code> and
 <code class="language-text">setOnClickListener</code>, we see that we can pass lambda to a
 function omitting the parenthesis. This applies to any
@@ -313,7 +314,104 @@ or does not have a value at all.</p>
 I understand it as parsing the XML file and generating the
 view hierarchy in memory. To draw analogy from the web dev
 domain, it would be to parse the HTML file and generating
-the actual DOM tree. </p></div><nav class="jss1"><div class="jss2"><a class="jss3" href="/blog/2019-11-22-all-about-tsung/">All about Tsung and Its Proxy recorder<!-- --> →</a></div><a href="/">Go Back Home, the Middle</a></nav></article><p class="jss5"><a rel="noreferrer noopener" target="_blank" href="/static/UCLA-Galen-frontend-cd1e4f716e8942f0fc1c9f64faa3dcef.pdf">resume</a> • <a rel="noreferrer noopener" target="_blank" href="/static/UCLA-黄子焕-深圳-前端-93b9961b69717a677d31346220a2213a.pdf">简历</a> • <a rel="noreferrer noopener" target="_blank" href="https://github.com/GalenWong">github</a> • <a rel="noreferrer noopener" target="_blank" href="https://www.instagram.com/wonggalen/">insta</a> • <a href="mailto:wonggalen1999@gmail.com">wonggalen1999@gmail.com</a> • <a href="/about">about</a></p></div></div><div class="MuiBox-root jss48 jss46"><div class="MuiContainer-root MuiContainer-maxWidthMd"></div></div></div> </div><script>
+the actual DOM tree. </p>
+<h2 id="default-parameters-with-inheritance"><a href="#default-parameters-with-inheritance" aria-label="default parameters with inheritance permalink" class="gatsby-remark-autolink-headers-a-tags"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Default Parameters with Inheritance</h2>
+<p>Read the following code snippet.
+Predict its output to the console. </p>
+<div class="gatsby-highlight" data-language="kotlin"><pre class="language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+	<span class="token keyword">val</span> a <span class="token operator">=</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> b <span class="token operator">=</span> <span class="token function">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">open</span> <span class="token keyword">class</span> A <span class="token punctuation">{</span>
+    <span class="token keyword">open</span> <span class="token keyword">fun</span> <span class="token function">method</span><span class="token punctuation">(</span>i<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> i
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> B<span class="token operator">:</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">method</span><span class="token punctuation">(</span>i<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> i
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<details>
+<summary>Answer</summary>
+<p>No, there is no output since this code does not compile.
+The reason can be found in the
+<a href="https://kotlinlang.org/docs/reference/functions.html#default-arguments" target="_blank" rel="nofollow noopener noreferrer">Kotlin docs</a>.
+Here I quote it.</p>
+<blockquote>
+<p>Overriding methods always use the same default parameter values as the base method. When overriding a method with default parameter values, the default parameter values must be omitted from the signature.</p>
+</blockquote>
+<p>The compiler error message for this case would be </p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">An overriding function is not allowed to specify default values for its parameters</code></pre></div>
+</details>
+<h4>Discussion</h4>
+<p>Initially, I cannot understand the intention of such
+language design decision. It is not difficult to
+implement such language feature. The reason for
+such design is perfectly answered by
+<a href="https://stackoverflow.com/a/37701188" target="_blank" rel="nofollow noopener noreferrer">this Stack Overflow answer</a>.
+The following quote from the answer explain why
+overriding parent classes’ default parameters is bad:</p>
+<blockquote>
+<p>Callers would not know what the default value is unless they were aware of which implementation they were using, which is of course highly undesirable.</p>
+</blockquote>
+<p>What does it look like in code? Let’s assume that
+the in another parallel universe the Kotlin compiler
+allow us to override the parent classes’ default
+parameters. Therefore the code above compiles.
+Let’s say that we declare a function that takes
+in an object of class <code class="language-text">A</code> as parameter. </p>
+<div class="gatsby-highlight" data-language="kotlin"><pre class="language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">processClassA</span><span class="token punctuation">(</span>obj<span class="token operator">:</span> A<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> A<span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>When the programmer want to use <code class="language-text">A.method</code> and its
+default parameters, it has to know which implementation
+of <code class="language-text">A</code> is being passed in. The reason for that is that
+we can also pass an instance of <code class="language-text">B</code> into <code class="language-text">processClassA</code>
+by the principle of OOP. That’s why such behavior is
+undesirable.</p>
+<p>Therefore, letting the parent class dictates the default
+parameters is the best choice to make so that programmer
+can reason about their program easier. </p>
+<h2 id="default-parameters-evaluation"><a href="#default-parameters-evaluation" aria-label="default parameters evaluation permalink" class="gatsby-remark-autolink-headers-a-tags"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Default Parameters Evaluation</h2>
+<p>Predict the output to the console of the following code
+snippet. </p>
+<div class="gatsby-highlight" data-language="kotlin"><pre class="language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>_i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">whatIsGlobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> global <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token keyword">fun</span> <span class="token function">getAndIncGlobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
+    global<span class="token operator">++</span>
+    <span class="token keyword">return</span> global
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fun</span> <span class="token function">whatIsGlobal</span><span class="token punctuation">(</span>g<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token function">getAndIncGlobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<details>
+<summary>Answer</summary>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</code></pre></div>
+<p>This proves that the default parameter expression is
+evaluated at call time instead of compile time, unlike
+Python.</p>
+</details></div><nav class="jss1"><div class="jss2"><a class="jss3" href="/blog/2019-11-22-all-about-tsung/">All about Tsung and Its Proxy recorder<!-- --> →</a></div><a href="/">Go Back Home, the Middle</a></nav></article><p class="jss5"><a rel="noreferrer noopener" target="_blank" href="/static/UCLA-Galen-frontend-cd1e4f716e8942f0fc1c9f64faa3dcef.pdf">resume</a> • <a rel="noreferrer noopener" target="_blank" href="/static/UCLA-黄子焕-深圳-前端-93b9961b69717a677d31346220a2213a.pdf">简历</a> • <a rel="noreferrer noopener" target="_blank" href="https://github.com/GalenWong">github</a> • <a rel="noreferrer noopener" target="_blank" href="https://www.instagram.com/wonggalen/">insta</a> • <a href="mailto:wonggalen1999@gmail.com">wonggalen1999@gmail.com</a> • <a href="/about">about</a></p></div></div><div class="MuiBox-root jss48 jss46"><div class="MuiContainer-root MuiContainer-maxWidthMd"></div></div></div> </div><script>
   
   
   if(true) {
