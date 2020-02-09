@@ -77,29 +77,29 @@ torturing other people with interview questions</del>.</p>
 <h3 id="return-from-lambda-and-af"><a href="#return-from-lambda-and-af" aria-label="return from lambda and af permalink" class="gatsby-remark-autolink-headers-a-tags"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code class="language-text">return</code> from Lambda and A.F.</h3>
 <p>Take a look at the following code snippet.
 Predict its output to the console. </p>
-<div class="gatsby-highlight" data-language="kotlin"><pre class="language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">val</span> arr <span class="token operator">=</span> <span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
-    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"stopAt3WithLambda"</span><span class="token punctuation">)</span>
-    <span class="token function">stopAt3WithLambda</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
-    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"stopAt3WithAF"</span><span class="token punctuation">)</span>
-    <span class="token function">stopAt3WithAF</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+<div class="gatsby-highlight" data-language="kt"><pre class="language-kt"><code class="language-kt">fun main(args: Array&lt;String&gt;) {
+    val arr = arrayOf(1, 2, 3, 4, 5)
+    println(&quot;stopAt3WithLambda&quot;)
+    stopAt3WithLambda(arr)
+    println(&quot;stopAt3WithAF&quot;)
+    stopAt3WithAF(arr)
+}
 
-<span class="token keyword">fun</span> <span class="token function">stopAt3WithLambda</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>Int<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    args<span class="token punctuation">.</span><span class="token function">forEach</span> <span class="token punctuation">{</span> k <span class="token operator">-></span> 
-        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"this is <span class="token interpolation variable">$k</span>"</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">return</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"finished, returning"</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+fun stopAt3WithLambda(args: Array&lt;Int&gt;) {
+    args.forEach { k -&gt; 
+        println(&quot;this is $k&quot;)
+        if (k == 3) return
+    }
+    println(&quot;finished, returning&quot;)
+}
 
-<span class="token keyword">fun</span> <span class="token function">stopAt3WithAF</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>Int<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    args<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">fun</span> <span class="token punctuation">(</span>k<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"this is <span class="token interpolation variable">$k</span>"</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">return</span>      
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"finished, returning"</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code></pre></div>
+fun stopAt3WithAF(args: Array&lt;Int&gt;) {
+    args.forEach(fun (k: Int) {
+        println(&quot;this is $k&quot;)
+        if (k == 3) return      
+    })
+    println(&quot;finished, returning&quot;)
+}</code></pre></div>
 <details>
 <summary>Answer</summary>
 <p>The code block outputs the following to the console:</p>
@@ -318,24 +318,24 @@ the actual DOM tree. </p>
 <h2 id="default-parameters-with-inheritance"><a href="#default-parameters-with-inheritance" aria-label="default parameters with inheritance permalink" class="gatsby-remark-autolink-headers-a-tags"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Default Parameters with Inheritance</h2>
 <p>Read the following code snippet.
 Predict its output to the console. </p>
-<div class="gatsby-highlight" data-language="kotlin"><pre class="language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
-	<span class="token keyword">val</span> a <span class="token operator">=</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">val</span> b <span class="token operator">=</span> <span class="token function">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+<div class="gatsby-highlight" data-language="kt"><pre class="language-kt"><code class="language-kt">fun main(args: Array&lt;String&gt;) {  
+	val a = A()
+    val b = B()
+    println(a.method())
+    println(b.method())
+}
 
-<span class="token keyword">open</span> <span class="token keyword">class</span> A <span class="token punctuation">{</span>
-    <span class="token keyword">open</span> <span class="token keyword">fun</span> <span class="token function">method</span><span class="token punctuation">(</span>i<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> i
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+open class A {
+    open fun method(i: Int = 1): Int {
+        return i
+    }
+}
 
-<span class="token keyword">class</span> B<span class="token operator">:</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">method</span><span class="token punctuation">(</span>i<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> i
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre></div>
+class B: A() {
+    override fun method(i: Int = 2): Int {
+        return i
+    }
+}</code></pre></div>
 <details>
 <summary>Answer</summary>
 <p>No, there is no output since this code does not compile.
@@ -365,9 +365,9 @@ allow us to override the parent classes’ default
 parameters. Therefore the code above compiles.
 Let’s say that we declare a function that takes
 in an object of class <code class="language-text">A</code> as parameter. </p>
-<div class="gatsby-highlight" data-language="kotlin"><pre class="language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">processClassA</span><span class="token punctuation">(</span>obj<span class="token operator">:</span> A<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> A<span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span>
-<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="kt"><pre class="language-kt"><code class="language-kt">fun processClassA(obj: A) {
+  return obj.method() * 2
+}</code></pre></div>
 <p>When the programmer want to use <code class="language-text">A.method</code> and its
 default parameters, it has to know which implementation
 of <code class="language-text">A</code> is being passed in. The reason for that is that
@@ -380,22 +380,22 @@ can reason about their program easier. </p>
 <h2 id="default-parameters-evaluation"><a href="#default-parameters-evaluation" aria-label="default parameters evaluation permalink" class="gatsby-remark-autolink-headers-a-tags"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Default Parameters Evaluation</h2>
 <p>Predict the output to the console of the following code
 snippet. </p>
-<div class="gatsby-highlight" data-language="kotlin"><pre class="language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
-    <span class="token keyword">for</span> <span class="token punctuation">(</span>_i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">..</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">whatIsGlobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<div class="gatsby-highlight" data-language="kt"><pre class="language-kt"><code class="language-kt">fun main(args: Array&lt;String&gt;) {  
+    for (_i in 1..10) {
+        whatIsGlobal()
+    }
+}
 
-<span class="token keyword">var</span> global <span class="token operator">=</span> <span class="token number">0</span>
+var global = 0
 
-<span class="token keyword">fun</span> <span class="token function">getAndIncGlobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
-    global<span class="token operator">++</span>
-    <span class="token keyword">return</span> global
-<span class="token punctuation">}</span>
+fun getAndIncGlobal(): Int {
+    global++
+    return global
+}
 
-<span class="token keyword">fun</span> <span class="token function">whatIsGlobal</span><span class="token punctuation">(</span>g<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token function">getAndIncGlobal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">println</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code></pre></div>
+fun whatIsGlobal(g: Int = getAndIncGlobal()) {
+    println(g)
+}</code></pre></div>
 <details>
 <summary>Answer</summary>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">1
@@ -411,7 +411,7 @@ snippet. </p>
 <p>This proves that the default parameter expression is
 evaluated at call time instead of compile time, unlike
 Python.</p>
-</details></div><nav class="jss1"><div class="jss2"><a class="jss3" href="/blog/2019-11-22-all-about-tsung/">All about Tsung and Its Proxy recorder<!-- --> →</a></div><a href="/">Go Back Home, the Middle</a></nav></article><p class="jss5"><a rel="noreferrer noopener" target="_blank" href="/static/UCLA-Galen-frontend-cd1e4f716e8942f0fc1c9f64faa3dcef.pdf">resume</a> • <a rel="noreferrer noopener" target="_blank" href="/static/UCLA-黄子焕-深圳-前端-93b9961b69717a677d31346220a2213a.pdf">简历</a> • <a rel="noreferrer noopener" target="_blank" href="https://github.com/GalenWong">github</a> • <a rel="noreferrer noopener" target="_blank" href="https://www.instagram.com/wonggalen/">insta</a> • <a href="mailto:wonggalen1999@gmail.com">wonggalen1999@gmail.com</a> • <a href="/about">about</a></p></div></div><div class="MuiBox-root jss48 jss46"><div class="MuiContainer-root MuiContainer-maxWidthMd"></div></div></div> </div><script>
+</details></div><nav class="jss1"><div class="jss2"><a href="/blog/2020-02-08-nesterov-momentum-equivalence/">← <!-- -->Nesterov Momentum Equivalence Derivation</a><a class="jss3" href="/blog/2019-11-22-all-about-tsung/">All about Tsung and Its Proxy recorder<!-- --> →</a></div><a href="/">Go Back Home, the Middle</a></nav></article><p class="jss5"><a rel="noreferrer noopener" target="_blank" href="/static/UCLA-Galen-frontend-cd1e4f716e8942f0fc1c9f64faa3dcef.pdf">resume</a> • <a rel="noreferrer noopener" target="_blank" href="/static/UCLA-黄子焕-深圳-前端-93b9961b69717a677d31346220a2213a.pdf">简历</a> • <a rel="noreferrer noopener" target="_blank" href="https://github.com/GalenWong">github</a> • <a rel="noreferrer noopener" target="_blank" href="https://www.instagram.com/wonggalen/">insta</a> • <a href="mailto:wonggalen1999@gmail.com">wonggalen1999@gmail.com</a> • <a href="/about">about</a></p></div></div><div class="MuiBox-root jss48 jss46"><div class="MuiContainer-root MuiContainer-maxWidthMd"></div></div></div> </div><script>
   
   
   if(true) {
