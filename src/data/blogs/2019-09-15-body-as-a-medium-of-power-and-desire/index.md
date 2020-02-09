@@ -5,13 +5,13 @@ date: '2019-09-15'
 ---
 
 _Disclaimer:
-This ariticle was written for a class that I took in UCLA,
+This article was written for a class that I took in UCLA,
 Japan 70, during Fall 2019. No one is allowed to use this
 work without my authorization or you might violate 
 academic integrity._ 
 
 __Before reading__: I make references to some scene of the film
-by marking its time in the foramt _(hh:mm:ss)_. For instance, 
+by marking its time in the format _(hh:mm:ss)_. For instance, 
 _(01:30:05)_ means the scene happens at 1 hour 30 minutes and 5 
 seconds from the start of the film.
 

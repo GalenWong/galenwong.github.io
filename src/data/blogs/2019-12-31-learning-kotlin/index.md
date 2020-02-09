@@ -28,7 +28,7 @@ torturing other people with interview questions~~.
 Take a look at the following code snippet. 
 Predict its output to the console. 
 
-```kotlin
+```kt
 fun main(args: Array<String>) {
     val arr = arrayOf(1, 2, 3, 4, 5)
     println("stopAt3WithLambda")
@@ -339,7 +339,7 @@ the actual DOM tree.
 Read the following code snippet. 
 Predict its output to the console. 
 
-```kotlin
+```kt
 fun main(args: Array<String>) {  
 	val a = A()
     val b = B()
@@ -398,9 +398,9 @@ parameters. Therefore the code above compiles.
 Let's say that we declare a function that takes
 in an object of class `A` as parameter. 
 
-```kotlin
+```kt
 fun processClassA(obj: A) {
-  return A.method() * 2
+  return obj.method() * 2
 }
 ```
 
@@ -420,7 +420,7 @@ can reason about their program easier.
 Predict the output to the console of the following code
 snippet. 
 
-```kotlin
+```kt
 fun main(args: Array<String>) {  
     for (_i in 1..10) {
         whatIsGlobal()
