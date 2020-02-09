@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{275:function(e,t,n){"use strict";n.r(t);var a=n(0),o=n.n(a),l=n(273),c=n(88);t.default=function(){return o.a.createElement(l.a,null,o.a.createElement("h3",null," This page does not exist in the middle. "),o.a.createElement("p",null,o.a.createElement(c.a,{to:"/"},'Go back to "the middle"'),", before you get too lost…"))}}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-fe86e1c555c7f2c9c394.js.map
