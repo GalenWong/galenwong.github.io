@@ -127,4 +127,20 @@ YouTube這個平台，可以說是我對台灣文化的首次接觸。其實並�
 
 「鍾意」一詞也是粵語入門必學的詞語了，是「喜歡」的意思。男主並沒有回答，而是給了觀眾自己想像和反思的空間，加上看到女主本來也是男主的刺殺對象之一，這一句拷問讓人回味無窮。
 
+在這裡我想指出，男主在設定上其實是廣東人而並不是香港人（參考自Spacebar對[古斌的角色介紹](https://www.facebook.com/spacebar.films/posts/1534191113372731)和古斌在[百人說書上的採訪](https://storystudio.tw/article/sobooks/people-x-sobooks-gu-bin/)）。我也無法考究這設定的原因，只能從MV的表現上膚淺的理解了。雖說如此，但粵語文化對《這款自作多情》的影響是有目共睹的。
+
 ## 美秀集團
+
+美秀集團的《我要你愛》則使用Disco風，表現七，八十年代香港的舞廳文化。
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ouQwJj1V2pE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+對於其中服裝的部分，[這一篇文章介紹](https://vocus.cc/@taiwancostume0707/5dc7c31afd897800015322b3)的不錯，在此就不深入探討MV的視覺了，畢竟我對這沒多少理解。
+
+在MV 3:52的时候，背景里有一个男生，用粵語說出「你唔好扼我啊」，意思為「你不要騙我啊」或「你最好不要騙我喔」。這句話可能是對整首歌主題的幽默回應，是歌者對愛人的要求：最好不要騙我說你愛我。另一種理解是愛人對歌者的回應：你現在展示給我最真實的一面最好不要是假的。
+
+在這首歌的熱門評論裏，有一個讓我捧腹大笑的觀察：
+
+![](./images/you-fall-on-street.png)
+
+在歌詞的最後一段，重複著「我不該 你不該 愛」，念詞的速度快的讓這一句聽起來就像廣東話裏的「我仆街 你仆街」。「仆街」也就是摔倒在街上的意思，身為一句髒話，被人用來詛咒別人橫屍街頭。一開始我以為這只是巧合，作詞家不會這麼故意的用粵語髒話的諧音來作詞。
