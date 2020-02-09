@@ -46,7 +46,9 @@ Then, the formulation becomes
 $$
 \mathbf{v}_\text{new} = \alpha\mathbf{v}_\text{old}
 - \epsilon\nabla_{\tilde{\theta}_\text{old}}
-J(\tilde{\theta}_\text{old})\\
+J(\tilde{\theta}_\text{old})
+$$
+$$
 \tilde{\theta}_\text{new} = \tilde{\theta}_\text{old}
 +\mathbf{v}_\text{new} 
 + \alpha(\mathbf{v}_\text{new} - \mathbf{v}_\text{old})
