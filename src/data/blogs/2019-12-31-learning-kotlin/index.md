@@ -28,7 +28,7 @@ torturing other people with interview questions~~.
 Take a look at the following code snippet. 
 Predict its output to the console. 
 
-```kt
+```kotlin
 fun main(args: Array<String>) {
     val arr = arrayOf(1, 2, 3, 4, 5)
     println("stopAt3WithLambda")
@@ -88,13 +88,13 @@ To understand the statement, I interpret the terms as such:
 - A "qualified" return is an action of return through the 
 explicit return statement with the `return` keyword.
  Meaning
-  ```kt
+  ```kotlin
   return 1
   ```
   is a qualified return. Another type of return is the 
   implicit return from a lambda. Meaning, the last 
   expression of the body of the lambda. 
-  ```kt
+  ```kotlin
   { a, b ->
     println("a: $a b: $b")
     a + b
@@ -140,7 +140,7 @@ and return from the outer function with `fun` keyword.
 To validate the theory, we change our `stopAt3` to traverse
 a 2D array instead. We have the following code snippets.
 
-```kt
+```kotlin
 fun main(args: Array<String>) {  
     val matrix = arrayOf(
     	arrayOf(1, 2, 3, 4, 5),
@@ -193,7 +193,7 @@ about the `return` statement. It jumps to the end of the
 closest function "frame" delimited by the `fun` keyword. 
 
 
-```kt
+```kotlin
 fun f() {
   fun g() {
     fun h() {
@@ -226,7 +226,7 @@ sense as a short hand.
 
 What is the output if we executed the following function?
 
-```kt
+```kotlin
 fun whatIsIt() {
   val it = 2
   val myEvilLambda = {
@@ -248,7 +248,7 @@ resolved to the `it` variable declared in the scope of
 any arguments. To fix the problem, we can declare the 
 parameter of `it` with an explicit type. 
 
-```kt
+```kotlin
 val myEvilLambda = { it:Int ->  
   println("it in lambda: $it")
 }
@@ -265,7 +265,7 @@ since the function that accepts the lambda already have
 a type declared for the lambda. For example, in Android,
 when you add an listener:
 
-```kt
+```kotlin
 myButton.setOnClickListener {
   val randNum = Random.nextInt(0, 100)
   it.setText("$randNum")
@@ -276,7 +276,7 @@ Or what the people in JavaScript lands call the functional
 programming style of `map`, `reduce`, `filter`, but instead
 in Kotlin they are `flatMap`, `fold`, and `filter`. 
 
-```kt
+```kotlin
 intArray.filter { it > 0 }
 ```
 
@@ -291,7 +291,7 @@ functions).
 
 An example from the documentation is 
 
-```kt
+```kotlin
 val product = items.fold(1) { acc, e -> acc * e }
 ```
 
@@ -339,7 +339,7 @@ the actual DOM tree.
 Read the following code snippet. 
 Predict its output to the console. 
 
-```kt
+```kotlin
 fun main(args: Array<String>) {  
 	val a = A()
     val b = B()
@@ -398,7 +398,7 @@ parameters. Therefore the code above compiles.
 Let's say that we declare a function that takes
 in an object of class `A` as parameter. 
 
-```kt
+```kotlin
 fun processClassA(obj: A) {
   return obj.method() * 2
 }
@@ -420,7 +420,7 @@ can reason about their program easier.
 Predict the output to the console of the following code
 snippet. 
 
-```kt
+```kotlin
 fun main(args: Array<String>) {  
     for (_i in 1..10) {
         whatIsGlobal()
