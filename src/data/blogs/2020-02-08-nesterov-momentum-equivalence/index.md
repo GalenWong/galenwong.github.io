@@ -164,7 +164,7 @@ with $(4)$ and $(5)$. Therefore, in the code, the new
 parameter is $\tilde\theta_\text{new}$ that is returned 
 instead of $\theta_\text{new}$. Again, the idea is that 
 the actual parameter stored and used for evaluation 
-is always updated with the momentum. Therefore, the  
+is always updated with the momentum. Therefore, the
 gradient is taken with loss is the parameter updated
 with the momentum.
 
