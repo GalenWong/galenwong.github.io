@@ -129,10 +129,9 @@ const GlobalStyles = withStyles((theme: Theme) => {
 				minWidth: 'fit-content'
 			},
 			'.katex-display': {
-				// enable scroll
-				overflow: 'auto',
-				// smooth scrolling on phones
-				'-webkit-overflow-scrolling': 'touch'
+				'& > .katex': {
+					whiteSpace: 'normal'
+				}
 			},
 			'.gatsby-remark-autolink-headers-a-tags': {
 				// remove box shadow on auto linked headers
