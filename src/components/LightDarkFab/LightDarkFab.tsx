@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Fab, NoSsr } from '@material-ui/core';
-import LightDarkContext from '../LightDarkContext/LightDarkContext';
+import LightDarkContext from '../../../plugins/gatsby-plugin-top-layout/LightDarkContext';
 
 import SunnyIcon from '@material-ui/icons/WbSunny';
 import NightIcon from '@material-ui/icons/Brightness3';

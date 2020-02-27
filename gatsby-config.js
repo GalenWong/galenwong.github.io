@@ -8,6 +8,7 @@ module.exports = {
 		titleTemplate: '%s | In the Middle'
 	},
 	plugins: [
+		`gatsby-plugin-top-layout`,
 		`gatsby-plugin-material-ui`,
 		{
 			resolve: `gatsby-plugin-typescript`,

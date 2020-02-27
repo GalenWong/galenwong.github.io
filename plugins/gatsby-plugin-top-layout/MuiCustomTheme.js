@@ -1,12 +1,16 @@
-
-import React, { ComponentProps, useEffect } from 'react';
-import Helmet from 'react-helmet';
-import { createMuiTheme, responsiveFontSizes, Theme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
-import { CssBaseline, createStyles, withStyles } from '@material-ui/core';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { createMuiTheme,
+	ThemeProvider,
+	responsiveFontSizes,
+	createStyles,
+	withStyles } from '@material-ui/core/styles';
 
 const Head = () =>
 	<Helmet>
+		<meta name="viewpoint" content="minimum-scale=1, initial-scale=1, width=device-width" />
 		<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,400|Noto+Serif+TC:300,400|Noto+Serif|Source+Sans+Pro:400,400i,700,700i|Merriweather&display=swap" rel="stylesheet" />
 	</Helmet>;
 
@@ -14,7 +18,7 @@ const mySerif = `"Noto Serif TC", "Noto Serif SC", "Noto Serif", serif`;
 
 const mySans = `"Merriweather", "Source Sans Pro", sans-serif`;
 
-const myTheme = (isDark: boolean) => responsiveFontSizes(createMuiTheme({
+const myTheme = isDark => responsiveFontSizes(createMuiTheme({
 	palette: {
 		type: isDark ? 'dark' : 'light',
 		primary: {
@@ -41,7 +45,7 @@ const myTheme = (isDark: boolean) => responsiveFontSizes(createMuiTheme({
 	}
 }));
 
-const GlobalStyles = withStyles((theme: Theme) => {
+const GlobalStyles = withStyles(theme => {
 	const isLight = theme.palette.type === 'light';
 	const mainColor = isLight ? theme.palette.primary.main : theme.palette.primary.light;
 	return createStyles({
@@ -144,20 +148,15 @@ const GlobalStyles = withStyles((theme: Theme) => {
 	});
 })(() => null);
 
-interface MuiCustomThemeProps extends ComponentProps<'div'> {
-	darkMode: boolean;
-}
-
-const ChildrenWithGlobalStyle = ({ children }: ComponentProps<'div'>) => {
+const ChildrenWithGlobalStyle = ({ children }) => {
 	return <> <GlobalStyles /> {children} </>;
 };
 
-function MuiCustomTheme({ children, darkMode, ...props }: MuiCustomThemeProps) {
+export default function MuiCustomTheme({ darkMode, children, ...props }) {
 	// take away SSR rendered mode;
 	useEffect(() => {
 		document.body.className = '';
 	}, []);
-
 	return (
 		<ThemeProvider theme={myTheme(darkMode)} {...props}>
 			<Head />
@@ -169,4 +168,11 @@ function MuiCustomTheme({ children, darkMode, ...props }: MuiCustomThemeProps) {
 	);
 }
 
-export default MuiCustomTheme;
+ChildrenWithGlobalStyle.propTypes = {
+	children: PropTypes.node
+};
+
+MuiCustomTheme.propTypes = {
+	darkMode: PropTypes.bool.isRequired,
+	children: PropTypes.node
+};

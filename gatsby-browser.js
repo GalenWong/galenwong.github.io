@@ -12,18 +12,3 @@ import './src/assets/prism-nord.css';
 import 'katex/dist/katex.min.css';
 // for better SSRed pages
 import './src/assets/global.css';
-import React from 'react';
-import PropTypes from 'prop-types';
-import ThemeTopLevelProvider from './src/components/ThemeTopLevelProvider/ThemeTopLevelProvider';
-
-const theme = localStorage.getItem('theme');
-const initTheme = theme === 'light' || theme === 'dark' ? theme : 'light';
-
-export const wrapRootElement = ({ element }) =>
-	<ThemeTopLevelProvider initTheme={initTheme}>
-		{element}
-	</ThemeTopLevelProvider>;
-
-wrapRootElement.propTypes = {
-	element: PropTypes.node
-};
