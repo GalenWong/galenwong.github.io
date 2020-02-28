@@ -1,11 +1,11 @@
 ---
 date: "2020-02-27"
-title: "Solving Theme SSR with Material-UI in Gatsby"
+title: "The Pitfall of Material UI Theme with Gatsby"
 subtitle: "The Order of Nesting Matters"
 ---
 
 > TLDR: you should move your theme provider into its 
-> our plugin. [Jump to the resolution](#conclusion-finally-mastering-the-jutsu).
+> own plugin. [Jump to the resolution](#conclusion-finally-mastering-the-jutsu).
 
 This blog is built with Gatsby, as I have explained 
 in [my earlier blog post](/blog/2019-09-11-first-blog).
@@ -79,11 +79,11 @@ my blog renders under a 6x CPU slowdown:
 ![Flash of Unstyled Content](./images/fouc.gif)
 <figcaption>
 
-  _Initial Render under 6x CPU slowdown_
+  _Initial rendering under 6x CPU slowdown_
 </figcaption>
 </figure>
 
-I want to point out the flash of font.
+The issue here is the flash of font.
 In CSS, we call this flash of unstyled content (FOUC). 
 Multiple factors can lead to FOUC. Common causes are
 loading of external CSS stylesheets and external fonts.
@@ -317,3 +317,27 @@ is the order in which they execute. The solution is that
 we extract our theme into a custom plugin. To see
 how I implemented that, you can check out this commit: 
 [226fff20](https://github.com/GalenWong/galenwong.github.io/commit/226fff203d3a67ac8d813ed3df9cd1f6f0bdb7df).
+
+At this point, you might ask "Why does this matter?
+Can't we just live with that flash of styling? We still
+have to bare with the flash of font styling since we
+ultimately have to wait for the download of font assets."
+
+Yes, it does not matter that much. But I simply enjoy 
+figuring things out and fixing this tiny but hard problem 
+is very much beneficial to my understanding of Gatsby as 
+a whole. There are also practical benefits. With fonts,
+browser can cache them easily and the flash of font is 
+only a problem for first-time visitors. When visitors come
+back for a second time, browser does not need to wait for 
+font downloading and the flash will not be there. However,
+with JavaScript styling, browser cannot cache the result and 
+therefore requires re-rendering every time the website is
+loaded. On low end device with slow CPU, this can be a problem
+since initial rendering is already slow with the need to 
+run the React code, and building the React DOM tree again. 
+
+To learn more about React rendering and front end optimization
+in general, read another blog post that I wrote for 
+JavaScript Chat with ACM Hack: 
+[Optimizing Frontend and React Apps](https://hack.uclaacm.com/posts/fall2019/js-chats-4/).
