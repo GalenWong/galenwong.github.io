@@ -52,9 +52,9 @@
 								}
 							} catch (err) {}
 						})()
-					</script><div id="___gatsby"> <!-- --> <div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="MuiBox-root jss7"><div class="MuiContainer-root MuiContainer-maxWidthMd"><header class="jss4"><h4 class="MuiTypography-root MuiTypography-h4 MuiTypography-colorPrimary"><div class="MuiBox-root jss45"><a style="box-shadow:none" href="/"><span style="white-space:nowrap">In the Middle</span> <span style="white-space:nowrap">站中間。</span></a></div></h4><p class="MuiTypography-root MuiTypography-body1">Personal Blog by <a href="/about"> Galen Wong </a></p></header><article><header><h1 class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom">The Pitfall of Material UI Theme with Gatsby</h1><h2 class="MuiTypography-root MuiTypography-h6">The Order of Nesting Matters</h2><p class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary">2020-02-27<!-- --> • <!-- -->8<!-- --> min read</p></header><div><blockquote>
+					</script><div id="___gatsby"> <!-- --> <div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="MuiBox-root jss7"><div class="MuiContainer-root MuiContainer-maxWidthMd"><header class="jss4"><h4 class="MuiTypography-root MuiTypography-h4 MuiTypography-colorPrimary"><div class="MuiBox-root jss45"><a style="box-shadow:none" href="/"><span style="white-space:nowrap">In the Middle</span> <span style="white-space:nowrap">站中間。</span></a></div></h4><p class="MuiTypography-root MuiTypography-body1">Personal Blog by <a href="/about"> Galen Wong </a></p></header><article><header><h1 class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom">The Pitfall of Material UI Theme with Gatsby</h1><h2 class="MuiTypography-root MuiTypography-h6">The Order of Nesting Matters</h2><p class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary">2020-02-27<!-- --> • <!-- -->9<!-- --> min read</p></header><div><blockquote>
 <p>TLDR: you should move your theme provider into its
-our plugin. <a href="#conclusion-finally-mastering-the-jutsu">Jump to the resolution</a>.</p>
+own plugin. <a href="#conclusion-finally-mastering-the-jutsu">Jump to the resolution</a>.</p>
 </blockquote>
 <p>This blog is built with Gatsby, as I have explained
 in <a href="/blog/2019-09-11-first-blog">my earlier blog post</a>.
@@ -111,7 +111,7 @@ my blog renders under a 6x CPU slowdown:</p>
 <figure align=center>
 <p><img src="/8d946af880f691b57f468d7f05879159/fouc.gif" alt="Flash of Unstyled Content"></p>
 <figcaption>
-<p>  <em>Initial Render under 6x CPU slowdown</em></p>
+<p>  <em>Initial rendering under 6x CPU slowdown</em></p>
 </figcaption>
 </figure>
 <p>The issue here is the flash of font.
@@ -366,7 +366,28 @@ is that the order of plugin specified in <code class="language-text">gatsby-conf
 is the order in which they execute. The solution is that
 we extract our theme into a custom plugin. To see
 how I implemented that, you can check out this commit:
-<a href="https://github.com/GalenWong/galenwong.github.io/commit/226fff203d3a67ac8d813ed3df9cd1f6f0bdb7df" target="_blank" rel="nofollow noopener noreferrer">226fff20</a>.</p></div><nav class="jss1"><div class="jss2"><a class="jss3" href="/blog/2020-02-08-nesterov-momentum-equivalence/">Nesterov Momentum Equivalence Derivation<!-- --> →</a></div><a href="/">Go Back Home, the Middle</a></nav></article><p class="jss5"><a rel="noreferrer noopener" target="_blank" href="/static/UCLA-Galen-frontend-cd1e4f716e8942f0fc1c9f64faa3dcef.pdf">resume</a> • <a rel="noreferrer noopener" target="_blank" href="/static/UCLA-黄子焕-深圳-前端-93b9961b69717a677d31346220a2213a.pdf">简历</a> • <a rel="noreferrer noopener" target="_blank" href="https://github.com/GalenWong">github</a> • <a rel="noreferrer noopener" target="_blank" href="https://www.instagram.com/wonggalen/">insta</a> • <a href="mailto:wonggalen1999@gmail.com">wonggalen1999@gmail.com</a> • <a href="/about">about</a></p></div></div><div class="MuiBox-root jss48 jss46"><div class="MuiContainer-root MuiContainer-maxWidthMd"></div></div></div> </div><script>
+<a href="https://github.com/GalenWong/galenwong.github.io/commit/226fff203d3a67ac8d813ed3df9cd1f6f0bdb7df" target="_blank" rel="nofollow noopener noreferrer">226fff20</a>.</p>
+<p>At this point, you might ask “Why does this matter?
+Can’t we just live with that flash of styling? We still
+have to bare with the flash of font styling since we
+ultimately have to wait for the download of font assets.”</p>
+<p>Yes, it does not matter that much. But I simply enjoy
+figuring things out and fixing this tiny but hard problem
+is very much beneficial to my understanding of Gatsby as
+a whole. There are also practical benefits. With fonts,
+browser can cache them easily and the flash of font is
+only a problem for first-time visitors. When visitors come
+back for a second time, browser does not need to wait for
+font downloading and the flash will not be there. However,
+with JavaScript styling, browser cannot cache the result and
+therefore requires re-rendering every time the website is
+loaded. On low end device with slow CPU, this can be a problem
+since initial rendering is already slow with the need to
+run the React code, and building the React DOM tree again. </p>
+<p>To learn more about React rendering and front end optimization
+in general, read another blog post that I wrote for
+JavaScript Chat with ACM Hack:
+<a href="https://hack.uclaacm.com/posts/fall2019/js-chats-4/" target="_blank" rel="nofollow noopener noreferrer">Optimizing Frontend and React Apps</a>.</p></div><nav class="jss1"><div class="jss2"><a class="jss3" href="/blog/2020-02-08-nesterov-momentum-equivalence/">Nesterov Momentum Equivalence Derivation<!-- --> →</a></div><a href="/">Go Back Home, the Middle</a></nav></article><p class="jss5"><a rel="noreferrer noopener" target="_blank" href="/static/UCLA-Galen-frontend-cd1e4f716e8942f0fc1c9f64faa3dcef.pdf">resume</a> • <a rel="noreferrer noopener" target="_blank" href="/static/UCLA-黄子焕-深圳-前端-93b9961b69717a677d31346220a2213a.pdf">简历</a> • <a rel="noreferrer noopener" target="_blank" href="https://github.com/GalenWong">github</a> • <a rel="noreferrer noopener" target="_blank" href="https://www.instagram.com/wonggalen/">insta</a> • <a href="mailto:wonggalen1999@gmail.com">wonggalen1999@gmail.com</a> • <a href="/about">about</a></p></div></div><div class="MuiBox-root jss48 jss46"><div class="MuiContainer-root MuiContainer-maxWidthMd"></div></div></div> </div><script>
   
   
   if(true) {
