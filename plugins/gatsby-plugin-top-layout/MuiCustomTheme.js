@@ -89,6 +89,10 @@ const GlobalStyles = withStyles(theme => {
 				lineHeight: 1.75
 			},
 			li: {
+				'& > p': {
+					// preventing sublist margin problem
+					margin: 0
+				},
 				...theme.typography.body1
 			},
 			img: {
