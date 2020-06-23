@@ -1,5 +1,9 @@
+---
+date: "2020-06-22"
+title: "My Two Cents on Fiber"
+subtitle: "No, it is not all about React."
+---
 
-# My Two Cents on Fiber
 
 I have been trying to understand the "Fiber" thingy in React for a while. Looking at documents 
 like [this](https://github.com/acdlite/react-fiber-architecture) and 
