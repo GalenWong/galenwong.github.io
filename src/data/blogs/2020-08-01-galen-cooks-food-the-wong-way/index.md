@@ -224,7 +224,7 @@ I was feeling lazy that day therefore I brought some of the ramen
 pack from the Japanese supermarket. Added a fried egg and some fried 
 Indian lettuce 油麥菜 (no idea what's the relation with India.)
 
-On the gyoza, there is a layer of crust. It is a crust formed from 
+On the gyoza (dumplings), there is a layer of crust. It is a crust formed from 
 starch water evaporated in the heat. For more details on how that is made,
 see Masa's video!
 
