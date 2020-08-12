@@ -102,6 +102,57 @@ module.exports = {
 				trackingId: 'UA-148030867-1',
 				excludes: ['/google51f857e8988b6cd3.html']
 			}
+		},
+		{
+			resolve: `gatsby-plugin-feed`,
+			options: {
+				query: `
+					{
+						site {
+							siteMetadata {
+								title
+								description
+								siteUrl
+								site_url: siteUrl
+							}
+						}
+					}
+				`,
+				feeds: [
+					{
+						serialize: ({ query: { site, allMarkdownRemark } }) => {
+							return allMarkdownRemark.nodes.map(node => {
+								return Object.assign({}, node.frontmatter, {
+									description: node.frontmatter.subtitle,
+									date: node.frontmatter.date,
+                  url: `${site.siteMetadata.siteUrl}/blog${node.fields.slug}`,
+									guid: `${site.siteMetadata.siteUrl}/blog${node.fields.slug}`,
+									// custom_elements: [{ "content:encoded": node.html }],
+								})
+							})
+						},
+						query: `
+							{
+								allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+									nodes {
+										fields {
+											slug
+										}
+										frontmatter {
+											title
+											subtitle
+											date
+										}
+									}
+								}
+							}
+						`,
+						output: "/rss.xml",
+						title: `RSS Feed of "In the Middle" — Galen Wong's blog`,
+
+					},
+				]
+			}
 		}
 	]
 };
