@@ -1,7 +1,7 @@
 ---
 date: "2021-02-13"
 title: "Cleaning Up My Mac"
-subtitle: "How I freed up 100 GB of disk space on my Mac"
+subtitle: "How I freed up 100 GB of disk space"
 ---
 
 > TLDR; 
