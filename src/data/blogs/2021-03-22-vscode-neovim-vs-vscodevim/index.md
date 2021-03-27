@@ -34,7 +34,7 @@ editor. Then you can yank (copy) the selected block and move it around.
 This is what it looks like with vscode-neovim. 
 
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="media/neovim-visual-block.mp4" type="video/mp4">
 </video>
 
@@ -46,7 +46,7 @@ However, this feature doesn't work properly within VSCodeVim. Take a look at
 the following demo: 
 
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="media/vim-visual-block.mp4" type="video/mp4">
 </video>
 
@@ -82,7 +82,7 @@ I can't easily recreate a performance issue. However, from how the two extension
 implement macros, we can see why vscode-neovim is faster than VSCodeVim.
 
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="media/neovim-macro.mp4" type="video/mp4">
 </video>
 
@@ -106,7 +106,7 @@ We can actual do the same thing within VSCodeVim, using the exactly same key
 stroke we used above. 
 
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="media/vim-macro.mp4" type="video/mp4">
 </video>
 
@@ -141,7 +141,7 @@ control-z undoing has different behavior. Again using the macro example above,
 we take a look at the difference in behavior in the `u` undo and control-z undo:
 
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="media/vim-u-undo.mp4" type="video/mp4">
 </video>
 
@@ -150,7 +150,7 @@ _`u` undo in VSCodeVim_
 
 
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="media/vim-z-undo.mp4" type="video/mp4">
 </video>
 
@@ -205,7 +205,7 @@ list items. Let's see how this is handled within vscode-neovim and VSCodeVim.
 
 
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="media/neovim-gqip.mp4" type="video/mp4">
 </video>
 
@@ -214,7 +214,7 @@ _`gqip` in vscode-neovim_
 
 
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="media/vim-gqip.mp4" type="video/mp4">
 </video>
 
@@ -291,7 +291,7 @@ means that I will not be able to copy a selected chunk of text using
 controll/cmd-c. For instance, if a select a word in visual mode and attempt to copy it with cmd-c. It does not work!
 
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="media/neovim-cmd-c.mp4" type="video/mp4">
 </video>
 
@@ -304,7 +304,7 @@ more chunk of text are selected. If we want something in copied to the system
 clipboard buffer, we can invoke the copy command using the command selector.
 
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="media/neovim-csp-copy.mp4" type="video/mp4">
 </video>
 
