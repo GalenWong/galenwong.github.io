@@ -85,7 +85,7 @@ It let’s you select a 2D block from the two-dimensional plane of the text
 editor. Then you can yank (copy) the selected block and move it around.
 This is what it looks like with vscode-neovim. </p>
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="/ff66fc55b24953a22721e3481883dd14/neovim-visual-block.mp4" type="video/mp4">
 </video>
 <p><em>Visual block mode in vscode-neovim</em></p>
@@ -94,7 +94,7 @@ This is what it looks like with vscode-neovim. </p>
 However, this feature doesn’t work properly within VSCodeVim. Take a look at
 the following demo: </p>
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="/7c1f03dc68b127a7f4618267d82a9f02/vim-visual-block.mp4" type="video/mp4">
 </video>
 <p><em>Broken visual block mode in VSCodeVim</em> </p>
@@ -121,7 +121,7 @@ Incredible extension</p>
 <p>I can’t easily recreate a performance issue. However, from how the two extensions
 implement macros, we can see why vscode-neovim is faster than VSCodeVim.</p>
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="/4dbfcd7327e967ad77c4b81571313155/neovim-macro.mp4" type="video/mp4">
 </video>
 <p><em>Macro in vscode-neovim</em></p>
@@ -145,7 +145,7 @@ lines. Yes, this is the power of Vim. You just gotta admire it.</p>
 <p>We can actual do the same thing within VSCodeVim, using the exactly same key
 stroke we used above. </p>
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="/5d41901c35b178588cd8b53d3a956162/vim-macro.mp4" type="video/mp4">
 </video>
 <p><em>Macro in VSCodeVim</em></p>
@@ -173,13 +173,13 @@ VSCode, or any common software really, the short cut to perform an undo is
 control-z undoing has different behavior. Again using the macro example above,
 we take a look at the difference in behavior in the <code class="language-text">u</code> undo and control-z undo:</p>
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="/b46cb9853d94cd3357f278975074eb2f/vim-u-undo.mp4" type="video/mp4">
 </video>
 <p><em><code class="language-text">u</code> undo in VSCodeVim</em></p>
 </div>
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="/c497f94ff585a45fbab711e2df2d64c5/vim-z-undo.mp4" type="video/mp4">
 </video>
 <p><em>control-z undo in VSCodeVim</em></p>
@@ -220,13 +220,13 @@ that only the second line should be wrapped and the first line should stay
 unchanged since we know Markdown relies on newline as a syntax to separate two
 list items. Let’s see how this is handled within vscode-neovim and VSCodeVim.</p>
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="/9735e07e609e7dbee9caf50f894233a2/neovim-gqip.mp4" type="video/mp4">
 </video>
 <p><em><code class="language-text">gqip</code> in vscode-neovim</em></p>
 </div>
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="/52b94d7ec75a56c6ca7295de13cd572b/vim-gqip.mp4" type="video/mp4">
 </video>
 <p><em><code class="language-text">gqip</code> in VSCodeVim</em></p>
@@ -286,7 +286,7 @@ all the power of Vim through vscode-neovim. However, it is not without drawback.
 means that I will not be able to copy a selected chunk of text using
 controll/cmd-c. For instance, if a select a word in visual mode and attempt to copy it with cmd-c. It does not work!</p>
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="/6e88b6e49fe4fcfd5be8f5f79858466a/neovim-cmd-c.mp4" type="video/mp4">
 </video>
 <p><em>Broken cmd-c copy and paste in vscode-neovim</em> </p>
@@ -296,7 +296,7 @@ exist out of visual mode. When paste happens, we are still in visual mode and
 more chunk of text are selected. If we want something in copied to the system
 clipboard buffer, we can invoke the copy command using the command selector.</p>
 <div align=center>
-<video autoplay loop playsinline style="max-width: 500px; width: 100%">
+<video autoplay loop muted playsinline style="max-width: 500px; width: 100%">
 <source src="/2b10bbb829bee4f328ed0b4ead8d32a5/neovim-csp-copy.mp4" type="video/mp4">
 </video>
 <p><em>cmd-c copy and paste in vscode-neovim through the command picker</em></p>
