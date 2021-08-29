@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { createMuiTheme,
+import { createTheme,
 	ThemeProvider,
 	responsiveFontSizes,
 	createStyles,
@@ -18,7 +18,7 @@ const mySerif = `"Noto Serif TC", "Noto Serif SC", "Noto Serif", serif`;
 
 const mySans = `"Merriweather", "Source Sans Pro", sans-serif`;
 
-const myTheme = isDark => responsiveFontSizes(createMuiTheme({
+const myTheme = isDark => responsiveFontSizes(createTheme({
 	palette: {
 		type: isDark ? 'dark' : 'light',
 		primary: {
@@ -108,8 +108,8 @@ const GlobalStyles = withStyles(theme => {
 				fontSize: 'inherit',
 				// light and dark mode different highlighting
 				transition: theme.transitions.create(['background', 'color']),
-				background: isLight ? 'var(--nord6)' : undefined,
-				color: isLight ? 'var(--nord0)' : undefined
+				background: isLight ? 'var(--nord6)' : 'var(--nord0)',
+				color: isLight ? 'var(--nord0)' : 'var(--nord4)'
 			},
 			// code highlight block
 			'.gatsby-highlight': {
