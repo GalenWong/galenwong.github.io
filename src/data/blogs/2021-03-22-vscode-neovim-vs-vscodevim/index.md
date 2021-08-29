@@ -1,7 +1,7 @@
 ---
 title: "Why I chose vscode-neovim over VSCodeVim"
 subtitle: "A comparison between the two VSCode Vim extensions"
-date: "2022-03-22"
+date: "2021-03-22"
 ---
 
 I like using Vim. I also like using VSCode. But I can't really go back to
