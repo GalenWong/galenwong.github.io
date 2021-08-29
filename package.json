@@ -29,7 +29,7 @@
     "gatsby-source-filesystem": "^3.12.0",
     "gatsby-transformer-remark": "^4.9.0",
     "gatsby-transformer-sharp": "^3.12.0",
-    "gh-pages": "^2.1.1",
+    "gh-pages": "^3.2.3",
     "katex": "^0.13.16",
     "prismjs": "^1.24.1",
     "prop-types": "^15.7.2",
