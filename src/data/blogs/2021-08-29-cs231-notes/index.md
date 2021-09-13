@@ -4,6 +4,44 @@ subtitle: "Winter 2021, taught by professor Todd Millstein"
 date: "2021-08-29"
 ---
 
+This is my notes for CS231 Types and Programming Languages during Winter 2021
+at UCLA. I find this class extremely interesting and want to share my notes for
+people are/will be taking the course as a reference, and for those considering
+taking the course to see what the content is like.  If you are an UCLA student
+considering taking this course, I am happy to answer any questions and talk
+about the class with you. 
+
+Quick FAQ:
+- What is the course about?
+  - This course is about the theory of type checking. The core goal of the
+    class is to show you how type checking guarantees runtime "correctness".
+    In the course, you will get to **construct an OCaml-like language from
+    ground up** by adding features (variables, functions, tuples, unions) one at
+    a time.  While adding each feature, we use maths to prove that our type
+    system will guarantee that the feature will run correctly at runtime.
+    Towards the end of the course, we get to use an automatic theorem prover
+    called Coq. 
+- How are the assignments and exams?
+  - Since the course is about proving that type checking works, you will be
+    writing some proofs in the homework. You will also write some OCaml code.
+    (Don't be scared, the OCaml code assignment is not like 131.) The exam is
+    very similar style to the homework. If you can handle the homework, you can
+    handle the exam.
+- If I am an undergrad, can I take this course? 
+  - Yes! I took this course as an undergrad.  Check with the department for the
+    process to enroll in grad classes as undergrad. 
+- What are some background knowledge that helped in 231?
+  - The course enforces CS 131 as a pre-requisite. You need to know some basic
+    OCaml for the coding homework, and having some basic understanding of the
+    OCaml type constructs like tuple, unions, pattern matching, and functions
+    definitely helps.  I also took CS 132 (compiler construction) before 231,
+    which helped me gain some experience of writing code for type checking. But
+    I will say 132 is nice to have but not necessary. Knowing how to write
+    LaTeX helped with the homework.
+
+
+Table of Contents for Notes:
+
 + [Operational Semantics](#operational-semantics)
   + [Big-step operational semantics](#big-step-operational-semantics)
     + [Applying inference rule](#applying-inference-rule)
@@ -31,7 +69,6 @@ date: "2021-08-29"
 + [Logic and typechecking](#logic-and-typechecking)
   + [Curry-Howard Isomorphism](#curry-howard-isomorphism)
   + [Logical Conjunction in type system](#logical-conjunction-in-type-system)
-  + [Interlude: Midterm next Wednesday (one week from today)](#interlude-midterm-next-wednesday-one-week-from-today)
   + [Logical Disjunction](#logical-disjunction)
   + [Type True](#type-true)
 + [Adding features](#adding-features)
@@ -42,10 +79,6 @@ date: "2021-08-29"
   + [Constraint Generation](#constraint-generation)
     + [Correctness of Constraint Generation](#correctness-of-constraint-generation)
   + [Constraints Solving](#constraints-solving)
-  + [Constraint Generation](#constraint-generation-1)
-    + [Correctness of Constraint Generation](#correctness-of-constraint-generation-1)
-  + [Constraints Solving](#constraints-solving-1)
-+ [Parametric Polymorphism](#parametric-polymorphism)
   + [Polymorphic Lambda Calculus (System F, Second-Order Lambda Calculus)](#polymorphic-lambda-calculus-system-f-second-order-lambda-calculus)
     + [Example: swap](#example-swap)
     + [Operational semantics for polymorphic lambda](#operational-semantics-for-polymorphic-lambda)
@@ -60,7 +93,7 @@ date: "2021-08-29"
     + [Defining list](#defining-list)
     + [Defining Recursion](#defining-recursion)
     + [Proof by Induction](#proof-by-induction)
-    + [Parametric polymorphism](#parametric-polymorphism-1)
+    + [Parametric polymorphism](#parametric-polymorphism)
     + [Defining Pairs](#defining-pairs)
     + [Dependent Proposition](#dependent-proposition)
   + [Proofs of 231 in Coq](#proofs-of-231-in-coq)
@@ -520,7 +553,7 @@ Example of eventually stuck:
 - note that this expression is not stuck. We can still take a step to reduce it to `5 + true`
   - `if true then (5 + true) else 0` $\rightarrow$ `5 + true`
 - note that `if (5 + true) then 1 else 0` is stuck tho. Since we cannot take
-an step to reduce it
+  an step to reduce it
 
 What is this in a real programming language?
 - a bad program
@@ -732,7 +765,7 @@ $$
 
 - we are forcing the true branch and false branch to have the same type 
 - figuring out eventually stuck expression is undecidable. A sound type
-system always be conservative and rule out program that technically run fine.
+  system always be conservative and rule out program that technically run fine.
    ```ocaml
    if true then 0 else false
    ```
@@ -898,7 +931,7 @@ If $d: (t: T)$ and $t \rightarrow t'$, then $t' : T$.
 
 Proof: By induction on derivation $d$.
 - IH: 
-If $d_0: (t_0: T_0)$, where $d_0$ is a subderivation of $d$, and $t_0 \rightarrow t_0'$, then $t_0' : T_0$.
+  If $d_0: (t_0: T_0)$, where $d_0$ is a subderivation of $d$, and $t_0 \rightarrow t_0'$, then $t_0' : T_0$.
 - Case $T_{Bool}$: Then $t=b$. Since $t$ is a value, it cannot step.
 - Case $T_{If}$: Then $t=\texttt{if t1 then t2 else t3}$, $t_1:Bool$,
   $t_2:T$, $t_3:T$.
@@ -968,7 +1001,7 @@ Where do we look for the next piece of work to do?
 - Describe the order of evaluation. 
 - we go with call by value since that's the most common
   - call-by-value semantics: call the leftmost function whose argument is a
-  value
+    value
 
 let `id` be shorthand for the identity function: `(function x -> x)`.
 
@@ -1029,7 +1062,7 @@ Now we have fully defined the language. It is turing complete!
 > ```
 > where `omega` is the infinite loop expression we defined above. 
 > - In a call-by-value semantics, we are required to evaluate `omega` 
-> first into a value, meaning it will run forever. 
+>   first into a value, meaning it will run forever. 
 > - In lazy evaluation, we don't evaluate argument until you need them. So, this program evaluate to just `id`
 
 > Note: for any 2 strategies that terminates, both will end up with the same value.
@@ -1407,7 +1440,7 @@ Now we define the operational semantics. First, we have to notice new values. No
 v ::= (function x:T -> t) | (v, v)
 ```
 
-**On-Exam** Exercise: write a small-step operational semantics for tuple.
+Exercise: write a small-step operational semantics for tuple.
 
 $$
 \cfrac{
@@ -1456,14 +1489,6 @@ $$
   \texttt{snd }(v_1, v_2) \rightarrow v_2
 } \quad E_{SndRed}
 $$
-
-### Interlude: Midterm next Wednesday (one week from today)
-- no class on wednesday
-- online exam (probably on gradescope)
-- 24 hours window to take the exam
-- but only 1 hour and 50 minutes once you start
-- 2 hours total, including scanning and uploading
-- open note, open book
 
 
 ### Logical Disjunction 
@@ -1777,8 +1802,8 @@ E_{SeqRed}
 $$
 
 - We force any statement to evaluate to the `()`, the `True` type (our
-representation of type Unit). So we indicate clearly we don't care about the
-value.
+  representation of type Unit). So we indicate clearly we don't care about the
+  value.
 
 
 $$
@@ -1803,6 +1828,7 @@ In Ocaml, `t1;t2` is syntactic sugar for `let _ = t1 in t2`.
 ```ocaml
 t ::= ... | let rec x=v in t
 ```
+
 - the difference between `let x=t1 in t2` and `let rec x=v in t2`
   is that `x` is not available in the scope of `t1` in the former while `x` is in scope in `v` for `rec`.
 - by making the right hand side a value `v`, we make sure that it is a function instead of other terms so we don't get something like 
@@ -1810,7 +1836,7 @@ t ::= ... | let rec x=v in t
   let rec x = x + 1 in ...
   ```
 - but why `v` not only `(function x:T -> t)`? It is more general since we can
-define a pair of function, therefore it is mutually recursive.
+  define a pair of function, therefore it is mutually recursive.
 
 $$
 \cfrac{}{
@@ -1993,7 +2019,7 @@ X ::= type variable
 
 How to turn typechecking rules into type inference rules?
 1. whenever a typechecking rules would have to "guess" a type, instead we
-create a fresh variable
+   create a fresh variable
 2. our type inference rules will never fail
    - `1 + true` fails on type check
    - but there is a valid derivation in type inference 
@@ -2252,325 +2278,6 @@ We introduce a new meta-variable for "types".
 ```ocaml
 S ::= Int | S -> S | X
 X ::= type variable
-```
-
-### Constraint Generation
-
-How to turn typechecking rules into type inference rules?
-1. whenever a typechecking rules would have to "guess" a type, instead we
-create a fresh variable
-2. our type inference rules will never fail
-   - `1 + true` fails on type check
-   - but there is a valid derivation in type inference 
-   - produce a set of constraints that must be satisfied
-   - later, if the constraints cannot be solved, we reject
-
-Type inference judgement: ${\rm tinfer}(\Gamma, s)=(S, C)$
-- in the book, $\Gamma\vdash s: S \mid C$
-- $C$ is a set of _type equality_ constraints of the form $S_1=S_2$.
-
-Type inference for Int
-
-$$
-\cfrac{
-    {\rm fresh} X
-}{
-    {\rm tinfer}(\Gamma, n) = (X, \{ X = Int\})
-}
-\quad
-I_{Num}
-$$
-- ${\rm fresh}X$ grabs a free type variable. Then, we impose constraint $X=Int$.
-
-
-$$
-\cfrac{
-    {\rm tinfer}(\Gamma, s_1) = (S_1, C_1)
-    \quad
-    {\rm tinfer}(\Gamma, s_2) = (S_2, C_2)
-    \quad
-    {\rm fresh}X
-}{
-    {\rm tinfer}(\Gamma, s_1 + s_2) = (X, \{ X=Int, S_1=Int, S_2=Int\} \cup C_1 \cup C_2)
-}
-\quad
-I_{Plus}
-$$
-
-Why does ${\rm tinfer}(\Gamma, s_1)$ returns a type variable $S_1$? 
-- if we force it to have $Int$, then we don't have the type inference 
-- example: `x+5`. We cannot resolve `x` to concrete type yet!
-
-
-Example of type infer derivation: `1+2`
-
-$$
-\cfrac{
-    \cfrac{}{
-      {\rm tinfer}(1) = (X_1, \{X_1 = Int\})
-    }
-    I_{Num}
-    \quad
-    \cfrac{}{
-      {\rm tinfer}(2) = (X_2, \{X_2 = Int\})
-    }
-    I_{Num}
-}{
-    {\rm tinfer}(1+2) = (X_3, \{
-        X_1 = Int, X_2 = Int, X_3 = Int
-    \}) 
-}
-\quad
-I_{Plus}
-$$
-- assumption $\Gamma=\empty$ implicitly
-
-One that has no solution: `1 + true`
-
-$$
-\cfrac{
-    \cfrac{}{
-      {\rm tinfer}(1) = (X_1, \{X_1 = Int\})
-    }
-    I_{Num}
-    \quad
-    \cfrac{}{
-      {\rm tinfer}(true) = (X_2, \{X_2 = Bool\})
-    }
-    I_{Num}
-}{
-    {\rm tinfer}(1+true) = (X_3, \{
-        X_1 = Int, X_2 = Int, X_2=Bool, X_3 = Int
-    \}) 
-}
-\quad
-I_{Plus}
-$$
-
-- $X_2=Int$ and $X_2=Bool$ is unsolvable
-
-$$
-\cfrac{
-  \Gamma(x) = S
-}{
-  {\rm tinfer}(\Gamma, x) = (S, \{\})
-}
-\quad
-I_{Var}
-$$
-
-
-$$
-\cfrac{
-  {\rm fresh}X
-  \quad 
-  {\rm tinfer}((\Gamma, x:X), s) = (S, C)
-  \quad
-  {\rm fresh}Y
-}{
-  {\rm tinfer}(\Gamma, \texttt{function x -> s}) = (Y, \{
-    Y = X\rightarrow S
-  \}\cup C)
-}
-\quad
-I_{Function}
-$$
-- we use rule 1, guess the type for `x` by assigning a type variable $X$
-- then, we put that into the type env
-
-Example for type infer on function
-$$
-\cfrac{
-  \cfrac{
-    \cfrac{ }{
-      {\rm tinfer}(x:X, x) = (X, \{\})
-    }
-    I_{Var}
-
-    \cfrac{}{
-      {\rm tinfer}(x:X, 1) = (X_1, \{X_1 = Int\})
-    }
-    I_{Num}
-  }{
-    {\rm tinfer}(x:X, x+1) = (X_2, \{X_1 = Int, X_2=Int, X=Int\})
-  } I_{Plus}
-}{
-  \begin{array}{ll}
-  & {\rm tinfer}(\{\}, \texttt{function x -> x + 1})  \\
-  =&(X_3, \{X_3=X\rightarrow X_2, X_2=Int, X=Int, X_1=Int\})
-  \end{array}
-}
-\quad
-I_{Function}
-$$
-
-- notice the benefit of not eagerly requiring `x` to have $Int$ in the $I_{Plus}$ check!
-
-$$
-\cfrac{
-  {\rm tinfer}(\Gamma, s_1) = (S_1, C_1)
-  \quad
-  {\rm tinfer}(\Gamma, s_2) = (S_2, C_2)
-  \quad
-  {\rm fresh}X
-}{
-  {\rm tinfer}(\Gamma, s_1\ s_2) = (X, \{
-    S_1 = S_2 \rightarrow X
-  \}\cup C_1 \cup C_2)
-} 
-\quad 
-I_{App}
-$$
-
-Example: `function f -> f 0`
-
-$$
-\cfrac{
-  \cfrac{
-    \cfrac{}{
-      {\rm tinfer}(\{f:F\},f) = (F, \{\})
-    }
-    I_{Var}
-    \quad
-    \cfrac{}{
-      {\rm tinfer}(\{f:F\}, 0) = (X, \{ X = Int\})
-    }
-    I_{Num} 
-  }{
-    {\rm tinfer}(\{f: F\}, \texttt{f 0}) = (Y, \{
-      F = X \rightarrow Y, X = Int
-      \})
-  }
-  \quad
-  I_{App}
-}{
-  {\rm tinfer}(\{\},\texttt{function f -> f 0}) 
-  = (Z, \{
-    Z = F \rightarrow Y,
-    F = X \rightarrow Y,
-    X = Int
-    \})
-}
-\quad
-I_{Function}
-$$
-
-A _substitution_ $\sigma$ is a mapping from type variable to types.
-- A substitution $\sigma$ satisfies $C=\{S_1 = S_1',...,S_n=S_n'\}$ if $\sigma(S_i)$ is syntactically equal to $\sigma(S_i')$ for all $i$.
-
-
-What is the substitution solution to `function f -> f 0`?
-$$
-\{
-  X: Int, 
-  Y: Bool,
-  F: Int \rightarrow Bool,
-  Z: (Int \rightarrow Bool) \rightarrow Bool
-\}
-$$
-- notice that we can choose any type for $Y$. Here we just choose $Bool$
-
-
-#### Correctness of Constraint Generation 
-
-Intuitively we want to prove that the constraints we generate capture _only_
-and _all_ of the possible typings for a program.
-
-- Soundness of Constraint Generation
-  - If ${\rm tinfer}(\{\}, s) = (S, C)$ and $\sigma$ satisfies $C$, then there exists term $t$ such that `erase(t) = s` and $\{\}\vdash t:\sigma(S)$
-
-- Completeness of Constraint Generation 
-  - If $\{\}\vdash t:T$ and `s=erase(t)`,   
-     then ${\rm tinfer}(\{\}, s) = (S, C)$ and there exists a $\sigma$ such that   
-     $\sigma$ satisfies $C$ and $\sigma(S) = T$
-
-We will not be proving them. 
-
-### Constraints Solving
-How do we solve constraints? 
-- we can plug them into Prolog. Consider  $\{
-    Z = F \rightarrow Y,
-    F = X \rightarrow Y,
-    X = Int
-    \})$
-
-  ```prolog
-  Z=arrow(F, Y), F=arrow(X, Y), X=int.
-  ```
-
-  gives the solution
-  ```prolog
-  Z=arrow(arrow(int, Y), Y)
-  X=int
-  F=arrow(int, Y)
-  ```
-- OCaml type inference system does something similar 
-
-We will explore constraint solving next time.
-## Parametric Polymorphism
-
-Example:
-```ocaml
-function x -> x;;
-```
-This function has type `'a -> 'a`
-
-$$
-\text{tinfer}(\{\}, \texttt{function x -> x}) 
-= (Y, \{Y = X\rightarrow X\})
-$$
-
-The least constraining solution is to don't assign `X` to any type.
-
-
-This does not work however if we consider the example
-```ocaml
-let id = function x -> x 
-    in (id 32, id true)
-```
-
-This is not gonna pass inference. By $I_{App}$ with constraint `id` as type
-`int -> int` on `id 32`, but constraint `id` as type `bool -> bool` on `id
-true`. This creates a unsatisfiable set of constraint.
-
-In our notation, this doesn't really work. How does OCaml do it? When OCaml
-sees that a polymorphic function call, it creates a set of constraint under a
-fresh variable, meaning the constraint applies to each call uniquely.
-
-This is called let-polymorphism.
-
-OCaml only supports parametric polymorphism for let-bound variables. It's not
-sound to treat other variables as polymorphic.
-
-```ocaml
-(function id -> (id 32, id true)) : ('a -> 'a) -> (int * bool)
-```
-
-If we assign the above function with the above type, we can call this function
-and crash it in runtime.
-
-When user call this function, user gets to choose `'a`. It can take in a concrete type like `int -> int` and crash the program.
-
-Another way of seeing this is because anything in `bound` we have the concrete
-implementation and can see it as polymorphic. We cannot make the same
-assumption in a parameter that is not bound to implementation until it is call.
-
-Parametric polymorphism also exists in Java.
-
-```java
-class Identity<T> {
-    T id (T x) { return x; }
-}
-```
-
-The motivation of adding generics in Java is for data structure. We want type
-safe data structure. Without polymorphism, we can only have data structure that
-stores objects. We have to downcast and it is not type safe.
-
-In OCaml, we can create our own polymorphic data structure.
-
-```ocaml
-type 'a mylist = Empty | Node of 'a * 'a mylist
 ```
 
 ### Polymorphic Lambda Calculus (System F, Second-Order Lambda Calculus)
