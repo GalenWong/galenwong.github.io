@@ -150,7 +150,11 @@ module.exports = {
 		"no-undef-init": "error",
 		"no-undefined": "off",
 		"no-unused-vars": "error",
-		"no-use-before-define": ["error", "nofunc"],
+		// "no-use-before-define": ["error", "nofunc"],
+		// note you must disable the base rule as it can report incorrect errors
+		// https://stackoverflow.com/a/64024916/11967053
+		"no-use-before-define": "off",
+		"@typescript-eslint/no-use-before-define": ["error"],
 
 		// Node.js and CommonJS
 		"callback-return": "off",

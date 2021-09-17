@@ -51,6 +51,13 @@ function About() {
 	return (
 		<article>
 			<Title>
+				Disclaimer
+			</Title>
+			<p>
+				Opinions expressed are solely my own and do not express the views or
+				opinions of my employer.
+			</p>
+			<Title>
 				About Galen
 			</Title>
 			<p> {introStr} </p>
