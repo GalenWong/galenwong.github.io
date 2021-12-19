@@ -6,8 +6,7 @@ import {
 	createTheme,
 	ThemeProvider,
 	StyledEngineProvider,
-	responsiveFontSizes,
-	adaptV4Theme
+	responsiveFontSizes
 } from '@mui/material/styles';
 
 import createStyles from '@mui/styles/createStyles';
@@ -23,7 +22,7 @@ const mySerif = `"Noto Serif TC", "Noto Serif SC", "Noto Serif", serif`;
 
 const mySans = `"Merriweather", "Source Sans Pro", sans-serif`;
 
-const myTheme = isDark => responsiveFontSizes(createTheme(adaptV4Theme({
+const myTheme = isDark => responsiveFontSizes(createTheme({
 	palette: {
 		mode: isDark ? 'dark' : 'light',
 		primary: {
@@ -48,7 +47,7 @@ const myTheme = isDark => responsiveFontSizes(createTheme(adaptV4Theme({
 			fontFamily: mySans
 		}
 	}
-})));
+}));
 
 const GlobalStyles = withStyles(theme => {
 	const isLight = theme.palette.mode === 'light';
