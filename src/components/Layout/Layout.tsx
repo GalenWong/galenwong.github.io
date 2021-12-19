@@ -13,7 +13,6 @@ const classes = {
 	footer: `${PREFIX}-footer`
 };
 
-// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
 const Root = styled('div')(({ theme }) => ({
 	[`& .${classes.navbar}`]: {
 		marginTop: 0,
