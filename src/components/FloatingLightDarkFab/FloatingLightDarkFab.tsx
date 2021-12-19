@@ -1,11 +1,17 @@
 
 import React from 'react';
-import { Container, Theme, Box } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { Container, Box } from '@mui/material';
 import LightDarkFab from '../LightDarkFab/LightDarkFab';
-import { makeStyles, createStyles } from '@mui/styles';
+const PREFIX = 'FloatingLightDarkFab';
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-	fixedPosition: {
+const classes = {
+	fixedPosition: `${PREFIX}-fixedPosition`,
+	fab: `${PREFIX}-fab`
+};
+
+const StyledBox = styled(Box)(({ theme }) => ({
+	[`&.${classes.fixedPosition}`]: {
 		position: 'fixed',
 		minWidth: '100%',
 		textAlign: 'right',
@@ -14,20 +20,20 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		// don't capture click on div
 		pointerEvents: 'none'
 	},
-	fab: {
+
+	[`& .${classes.fab}`]: {
 		// only capture click on button
 		pointerEvents: 'all'
 	}
 }));
 
 function FloatingLightDarkFab() {
-	const classes = useStyles();
 	return (
-		<Box className={classes.fixedPosition}>
+		<StyledBox className={classes.fixedPosition}>
 			<Container maxWidth="md">
 				<LightDarkFab className={classes.fab} />
 			</Container>
-		</Box>
+		</StyledBox>
 	);
 }
 
