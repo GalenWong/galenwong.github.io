@@ -1,18 +1,26 @@
 import React, { ComponentProps } from 'react';
-import { makeStyles, createStyles } from '@mui/styles';
-import { Theme } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
 import FixedContainer from '../FixedContainer/FixedContainer';
 import NavBar from '../NavBar/NavBar';
 import FloatingLightDarkFab from '../FloatingLightDarkFab/FloatingLightDarkFab';
 import FooterBar from '../FooterBar/FooterBar';
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-	navbar: {
+const PREFIX = 'Layout';
+
+const classes = {
+	navbar: `${PREFIX}-navbar`,
+	footer: `${PREFIX}-footer`
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')(({ theme }) => ({
+	[`& .${classes.navbar}`]: {
 		marginTop: 0,
 		marginBottom: theme.spacing(8)
 	},
-	footer: {
+
+	[`& .${classes.footer}`]: {
 		marginTop: theme.spacing(8)
 	}
 }));
@@ -27,17 +35,16 @@ function Layout({
 	showTopInfo = false,
 	showBottomInfo = true
 }: LayoutProps) {
-	const classes = useStyles();
 	return (
-		<>
-		<FixedContainer>
-			<NavBar className={ showTopInfo ? undefined : classes.navbar} />
-			{ showTopInfo ? <nav><FooterBar className={classes.navbar} /></nav> : null }
-			{children}
-			{ showBottomInfo ? <FooterBar className={classes.footer} /> : null }
-		</FixedContainer>
-		<FloatingLightDarkFab />
-		</>
+		<Root>
+			<FixedContainer>
+				<NavBar className={ showTopInfo ? undefined : classes.navbar} />
+				{ showTopInfo ? <nav><FooterBar className={classes.navbar} /></nav> : null }
+				{children}
+				{ showBottomInfo ? <FooterBar className={classes.footer} /> : null }
+			</FixedContainer>
+			<FloatingLightDarkFab />
+		</Root>
 	);
 }
 
