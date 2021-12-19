@@ -1,5 +1,5 @@
 import React, { ElementType, ComponentProps } from 'react';
-import { Typography, Box } from '@material-ui/core';
+import { Typography, Box } from '@mui/material';
 import { Link } from 'gatsby';
 
 

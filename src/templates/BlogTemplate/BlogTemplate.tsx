@@ -3,8 +3,8 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import BlogPost from '../../components/BlogPost/BlogPost';
 import Layout from '../../components/Layout/Layout';
-import { Typography, Theme } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/styles';
+import { Typography, Theme } from '@mui/material';
+import { makeStyles, createStyles } from '@mui/styles';
 import SEO from '../../components/SEO/SEO';
 
 export const pageQuery = graphql`

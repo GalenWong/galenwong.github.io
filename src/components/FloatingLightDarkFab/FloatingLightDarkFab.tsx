@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { Container, Theme, Box } from '@material-ui/core';
+import { Container, Theme, Box } from '@mui/material';
 import LightDarkFab from '../LightDarkFab/LightDarkFab';
-import { makeStyles, createStyles } from '@material-ui/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	fixedPosition: {

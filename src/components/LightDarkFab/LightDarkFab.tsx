@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { Fab, NoSsr } from '@material-ui/core';
+import { Fab, NoSsr } from '@mui/material';
 import LightDarkContext from '../../../plugins/gatsby-plugin-top-layout/LightDarkContext';
 
-import SunnyIcon from '@material-ui/icons/WbSunny';
-import NightIcon from '@material-ui/icons/Brightness3';
-import { FabProps } from '@material-ui/core/Fab';
+import SunnyIcon from '@mui/icons-material/WbSunny';
+import NightIcon from '@mui/icons-material/Brightness3';
+import { FabProps } from '@mui/material/Fab';
 
 function LightDarkFab(props: FabProps) {
 	const { theme, changeTheme } = useContext(LightDarkContext);

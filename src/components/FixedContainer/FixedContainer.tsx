@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Container, Box } from '@material-ui/core';
-import { ContainerProps } from '@material-ui/core/Container';
+import { Container, Box } from '@mui/material';
+import { ContainerProps } from '@mui/material/Container';
 
 
 function FixedContainer(props: ContainerProps) {

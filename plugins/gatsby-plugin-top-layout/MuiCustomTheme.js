@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { createTheme,
+import CssBaseline from '@mui/material/CssBaseline';
+import {
+	createTheme,
 	ThemeProvider,
+	StyledEngineProvider,
 	responsiveFontSizes,
-	createStyles,
-	withStyles } from '@material-ui/core/styles';
+	adaptV4Theme
+} from '@mui/material/styles';
+
+import createStyles from '@mui/styles/createStyles';
+import withStyles from '@mui/styles/withStyles';
 
 const Head = () =>
 	<Helmet>
@@ -18,9 +23,9 @@ const mySerif = `"Noto Serif TC", "Noto Serif SC", "Noto Serif", serif`;
 
 const mySans = `"Merriweather", "Source Sans Pro", sans-serif`;
 
-const myTheme = isDark => responsiveFontSizes(createTheme({
+const myTheme = isDark => responsiveFontSizes(createTheme(adaptV4Theme({
 	palette: {
-		type: isDark ? 'dark' : 'light',
+		mode: isDark ? 'dark' : 'light',
 		primary: {
 			main: '#389abb'
 		}
@@ -43,10 +48,10 @@ const myTheme = isDark => responsiveFontSizes(createTheme({
 			fontFamily: mySans
 		}
 	}
-}));
+})));
 
 const GlobalStyles = withStyles(theme => {
-	const isLight = theme.palette.type === 'light';
+	const isLight = theme.palette.mode === 'light';
 	const mainColor = isLight ? theme.palette.primary.main : theme.palette.primary.light;
 	return createStyles({
 		'@global': {
@@ -162,13 +167,15 @@ export default function MuiCustomTheme({ darkMode, children, ...props }) {
 		document.body.className = '';
 	}, []);
 	return (
-		<ThemeProvider theme={myTheme(darkMode)} {...props}>
-			<Head />
-			<CssBaseline />
-			<ChildrenWithGlobalStyle>
-				{children}
-			</ChildrenWithGlobalStyle>
-		</ThemeProvider>
+		<StyledEngineProvider injectFirst>
+			<ThemeProvider theme={myTheme(darkMode)} {...props}>
+				<Head />
+				<CssBaseline />
+				<ChildrenWithGlobalStyle>
+					{children}
+				</ChildrenWithGlobalStyle>
+			</ThemeProvider>
+		</StyledEngineProvider>
 	);
 }
 

@@ -1,6 +1,6 @@
 
 import React, { ComponentProps } from 'react';
-import { Typography, Box } from '@material-ui/core';
+import { Typography, Box } from '@mui/material';
 import { Link } from 'gatsby';
 
 function NavBar(props: ComponentProps<'header'>) {

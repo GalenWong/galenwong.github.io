@@ -1,7 +1,7 @@
 
 import React, { ComponentProps } from 'react';
-import { Typography, Theme } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/styles';
+import { Typography, Theme } from '@mui/material';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const introStr = `
 Hi, my name is Galen Wong.

@@ -3,7 +3,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../../components/Layout/Layout';
 import BlogSummary from '../../components/BlogSummary/BlogSummary';
-import { makeStyles, createStyles, Theme } from '@material-ui/core';
+import { Theme } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
 import SEO from '../../components/SEO/SEO';
 
 export const pageQuery = graphql`
