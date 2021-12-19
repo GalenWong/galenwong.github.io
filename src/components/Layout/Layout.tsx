@@ -33,10 +33,11 @@ interface LayoutProps extends ComponentProps<'div'>{
 function Layout({
 	children,
 	showTopInfo = false,
-	showBottomInfo = true
+	showBottomInfo = true,
+	className
 }: LayoutProps) {
 	return (
-		<Root>
+		<Root className={className}>
 			<FixedContainer>
 				<NavBar className={ showTopInfo ? undefined : classes.navbar} />
 				{ showTopInfo ? <nav><FooterBar className={classes.navbar} /></nav> : null }
