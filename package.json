@@ -7,9 +7,6 @@
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/styles": "^4.11.4",
     "@mui/icons-material": "^5.2.4",
     "@mui/material": "^5.2.4",
     "@mui/styles": "^5.2.3",
@@ -18,7 +15,7 @@
     "gatsby-plugin-feed": "^4.4.0",
     "gatsby-plugin-google-analytics": "^4.4.0",
     "gatsby-plugin-manifest": "^4.4.0",
-    "gatsby-plugin-material-ui": "^3.0.1",
+    "gatsby-plugin-material-ui": "^4.1.0",
     "gatsby-plugin-offline": "^5.4.0",
     "gatsby-plugin-react-helmet": "^5.4.0",
     "gatsby-plugin-sharp": "^4.4.0",
