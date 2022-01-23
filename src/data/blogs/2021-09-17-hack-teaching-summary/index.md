@@ -9,6 +9,7 @@ date: "2021-09-17"
   + [Hackschool Fall 2018 Session 5 Frontend: Intro to React](#hackschool-fall-2018-session-5-frontend-intro-to-react)
   + [Hackschool Fall 2019 Session 4 Backend: More on Express.js](#hackschool-fall-2019-session-4-backend-more-on-expressjs)
   + [Hackschool Fall 2019 Session 6 Backend: Introduction to Database](#hackschool-fall-2019-session-6-backend-introduction-to-database)
+  + [Hackschool Fall 2020 Session 3: Webpage Interaction with the DOM](#hackschool-fall-2020-session-3-webpage-interaction-with-the-dom)
 + [Developing in Python: Learn.py](#developing-in-python-learnpy)
   + [Learn.py Spring 2019 Session 7: Web Dev Part 2](#learnpy-spring-2019-session-7-web-dev-part-2)
 + [Intermediate/Advanced JavaScript: JavaScript Chats](#intermediateadvanced-javascript-javascript-chats)
@@ -16,8 +17,9 @@ date: "2021-09-17"
   + [JavaScript Chats Fall 2019 Session 3: A Gentle Introduction to React Hooks](#javascript-chats-fall-2019-session-3-a-gentle-introduction-to-react-hooks)
   + [JavaScript Chats Fall 2019 Session 4: Optimizing Frontend and React Apps](#javascript-chats-fall-2019-session-4-optimizing-frontend-and-react-apps)
   + [JavaScript Chats Fall 2019 Session 6: Introduction to Testing with JavaScript](#javascript-chats-fall-2019-session-6-introduction-to-testing-with-javascript)
-+ [Android apps in Kotlin: Hack Sprint](#android-apps-in-kotlin-hack-sprint)
++ [Mobile app development: Hack Sprint](#mobile-app-development-hack-sprint)
   + [Hack Sprint Winter 2020 Session 4: Navigation](#hack-sprint-winter-2020-session-4-navigation)
+  + [Hack Sprint Winter 2021 Session 5: Asynchronous Programming and useEffect](#hack-sprint-winter-2021-session-5-asynchronous-programming-and-useeffect)
 + [Tooling for developers: Tooling Series](#tooling-for-developers-tooling-series)
   + [Tooling Series Spring 2020 Session 4: $\LaTeX$](#tooling-series-spring-2020-session-4-latex)
 
@@ -157,6 +159,11 @@ The theme was to whine about JavaScript, but learn about it while complaining.
   
 Yes, one of the most annoying pitfall of JavaScript, the magical `this`. And why the hell are there two ways to write functions in JavaScript. 
 
+> the topic is repeated again for JavaScript Chats Spring 2021 Session 1
+> - assets:
+>   - [README](https://hack.uclaacm.com/posts/fall2019/js-chat-1/)
+>   - [slides](https://docs.google.com/presentation/d/19zJcpCnemyC0JlUmUbiA5Novkwlij0MOE1WpP2aZro8/edit?usp=sharing)
+
 #### JavaScript Chats Fall 2019 Session 3: A Gentle Introduction to React Hooks 
 
 - topic: `React.useState`, `React.useEffect`
@@ -188,6 +195,37 @@ A lot of people have frontend development experience. Knowing how to use the Dev
 Testing is important. We all know that. This gives an introduction to the
 benefits of Test Driven Development, how to use Jest for a good Test Driven
 Development experience (extremely important), and what/why is mocking.
+
+> the topic is repeated again for JavaScript Chats Spring 2021 Session 6
+> - assets:
+>   - [README](https://hack.uclaacm.com/posts/spring2021/js-chats-6-hooks/)
+>   - [slides](https://docs.google.com/presentation/d/1Al-gnjfPiZOl8BvIC7h7GrT3BRgvrusmS2vGATavELY/edit?usp=sharing)
+
+#### JavaScript Chats Spring 2021 Session 2: Node.js Profiling
+
+![javascript chats spring 2021](images/jschats-21s.png)
+
+- topic: Chrome DevTools for Node.js application
+- assets
+  - [README](https://hack.uclaacm.com/posts/spring2021/js-chats-2/)
+  - [slides](https://docs.google.com/presentation/d/1wLDt1fq6p17byib0hHz-so3Vf5_k6vPq8HYlDOPPS64/edit?usp=sharing)
+
+Since both Chrome and Node.js are built on top of the v8 engine, their share
+quite a portion of debugging infrastructure. We can use the Chrome DevTools for
+debugging and profiling Node.js application as well. We teach people how to 
+read interpret the flame graph.
+
+#### JavaScript Chats Spring 2021 Session 4: WebRTC 
+
+- topic: P2P video protocol, how to use WebRTC
+- assets
+  - [README](https://hack.uclaacm.com/posts/spring2021/js-chats-4/)
+  - [slides](https://docs.google.com/presentation/d/1QpF6_TG_XgtmUoOZi0mJnQnFmT7z7sWcvwJfG1g3Osw/edit?usp=sharing)
+
+The pandemic makes video communication one of the most useful feature of the
+Internet. But the inner working of video communication is obscure to most.  We
+help people understand how to set up a basic P2P video calling web application
+using the WebRTC API, and why the API are designed that way.
 
 ### Mobile app development: Hack Sprint
 
