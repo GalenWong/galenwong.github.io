@@ -4,6 +4,19 @@ subtitle: "Teaching is the best way to learn"
 date: "2021-09-17"
 ---
 
+During college, I was part of a club called [ACM
+Hack](https://hack.uclaacm.com/). The club runs beginner friendly workshops
+focused on web development, mobile development, or anything we find useful and
+fun. We also did some intermediate/advanced workshops. Another big components
+we did was (mini) Hackathon, socials and expo type events. 
+
+I enjoy teaching so I taught a lot during my time at Hack. The blog post is a
+summary of what I have taught before. The assets of each workshop usually
+include a set of slides, a README (a text format of the workshop), and maybe
+recording (mostly during the pandemic).
+
+
+Table of contents
 + [Web Development: Hackschool](#web-development-hackschool)
   + [Hackschool Fall 2018 Session 3 Backend: What is an API?](#hackschool-fall-2018-session-3-backend-what-is-an-api)
   + [Hackschool Fall 2018 Session 5 Frontend: Intro to React](#hackschool-fall-2018-session-5-frontend-intro-to-react)
@@ -17,22 +30,13 @@ date: "2021-09-17"
   + [JavaScript Chats Fall 2019 Session 3: A Gentle Introduction to React Hooks](#javascript-chats-fall-2019-session-3-a-gentle-introduction-to-react-hooks)
   + [JavaScript Chats Fall 2019 Session 4: Optimizing Frontend and React Apps](#javascript-chats-fall-2019-session-4-optimizing-frontend-and-react-apps)
   + [JavaScript Chats Fall 2019 Session 6: Introduction to Testing with JavaScript](#javascript-chats-fall-2019-session-6-introduction-to-testing-with-javascript)
+  + [JavaScript Chats Spring 2021 Session 2: Node.js Profiling](#javascript-chats-spring-2021-session-2-nodejs-profiling)
+  + [JavaScript Chats Spring 2021 Session 4: WebRTC](#javascript-chats-spring-2021-session-4-webrtc)
 + [Mobile app development: Hack Sprint](#mobile-app-development-hack-sprint)
   + [Hack Sprint Winter 2020 Session 4: Navigation](#hack-sprint-winter-2020-session-4-navigation)
   + [Hack Sprint Winter 2021 Session 5: Asynchronous Programming and useEffect](#hack-sprint-winter-2021-session-5-asynchronous-programming-and-useeffect)
 + [Tooling for developers: Tooling Series](#tooling-for-developers-tooling-series)
   + [Tooling Series Spring 2020 Session 4: $\LaTeX$](#tooling-series-spring-2020-session-4-latex)
-
-During college, I was part of a club called [ACM
-Hack](https://hack.uclaacm.com/). The club runs beginner friendly workshops
-focused on web development, mobile development, or anything we find useful and
-fun. We also did some intermediate/advanced workshops. Another big components
-we did was (mini) Hackathon, socials and expo type events. 
-
-I enjoy teaching so I taught a lot during my time at Hack. The blog post is a
-summary of what I have taught before. The assets of each workshop usually
-include a set of slides, a README (a text format of the workshop), and maybe
-recording (mostly during the pandemic).
 
 ### Web Development: Hackschool
 
