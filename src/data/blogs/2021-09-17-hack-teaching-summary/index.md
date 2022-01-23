@@ -57,6 +57,34 @@ As people abandoned jQuery and moved on to more structured way to write web
 apps, we kept up with trend to introduce beginners to React. We did so by
 drawing connections between HTML and JSX syntaxes. 
 
+#### Hackschool Fall 2019 Session 4 Backend: More on Express.js
+
+![hackschool fall 2019 session 4 more on express](images/hackschool-f19-express.png)
+
+- topic: module system in node.js, using express for API endpoint routing
+- assets:
+  - [README](https://github.com/uclaacm/hackschool-f19/tree/master/session-4-backend-express)
+  - [slides](https://docs.google.com/presentation/d/1cy9AZdiZY5d3i59HL3ltGb1w0KX_-FNHHKZteRpa-ic/edit?usp=sharing)
+  
+Understanding the module system helps people break code into smaller, more
+manageable chunks. Knowing how URL and routing works helps to break an APIs
+service into smaller, more manageable chunks as well.
+
+#### Hackschool Fall 2019 Session 6 Backend: Introduction to Database
+
+
+![hackschool fall 2019 session 6](images/hackschool-f19-w7.png)
+
+- topic: what are database and why we need it, using Firebase
+- assets:
+  - [README](https://github.com/uclaacm/hackschool-f19/tree/master/session-6-backend-database)
+  - [slides](https://docs.google.com/presentation/d/1RjCwhW5_mFhfwUQ8uzXsJd7VFsbctQH8K9Z1tFhqvEc/edit?usp=sharing)
+
+Server programs are forgetful if we just store things in memory, they get wiped
+out after the server shuts down. We need a way to persist data and therefore we
+need a database. Using Firebase, we can set up a database quickly without much
+hassle. 
+
 
 ### Developing in Python: Learn.py
 
