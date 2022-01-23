@@ -7,6 +7,8 @@ date: "2021-09-17"
 + [Web Development: Hackschool](#web-development-hackschool)
   + [Hackschool Fall 2018 Session 3 Backend: What is an API?](#hackschool-fall-2018-session-3-backend-what-is-an-api)
   + [Hackschool Fall 2018 Session 5 Frontend: Intro to React](#hackschool-fall-2018-session-5-frontend-intro-to-react)
+  + [Hackschool Fall 2019 Session 4 Backend: More on Express.js](#hackschool-fall-2019-session-4-backend-more-on-expressjs)
+  + [Hackschool Fall 2019 Session 6 Backend: Introduction to Database](#hackschool-fall-2019-session-6-backend-introduction-to-database)
 + [Developing in Python: Learn.py](#developing-in-python-learnpy)
   + [Learn.py Spring 2019 Session 7: Web Dev Part 2](#learnpy-spring-2019-session-7-web-dev-part-2)
 + [Intermediate/Advanced JavaScript: JavaScript Chats](#intermediateadvanced-javascript-javascript-chats)
@@ -14,6 +16,10 @@ date: "2021-09-17"
   + [JavaScript Chats Fall 2019 Session 3: A Gentle Introduction to React Hooks](#javascript-chats-fall-2019-session-3-a-gentle-introduction-to-react-hooks)
   + [JavaScript Chats Fall 2019 Session 4: Optimizing Frontend and React Apps](#javascript-chats-fall-2019-session-4-optimizing-frontend-and-react-apps)
   + [JavaScript Chats Fall 2019 Session 6: Introduction to Testing with JavaScript](#javascript-chats-fall-2019-session-6-introduction-to-testing-with-javascript)
++ [Android apps in Kotlin: Hack Sprint](#android-apps-in-kotlin-hack-sprint)
+  + [Hack Sprint Winter 2020 Session 4: Navigation](#hack-sprint-winter-2020-session-4-navigation)
++ [Tooling for developers: Tooling Series](#tooling-for-developers-tooling-series)
+  + [Tooling Series Spring 2020 Session 4: $\LaTeX$](#tooling-series-spring-2020-session-4-latex)
 
 During college, I was part of a club called [ACM
 Hack](https://hack.uclaacm.com/). The club runs beginner friendly workshops
@@ -164,4 +170,48 @@ A lot of people have frontend development experience. Knowing how to use the Dev
   - [README](https://hack.uclaacm.com/posts/fall2019/js-chats-6/)
   - [slides](https://docs.google.com/presentation/d/1WBkYDYv-DfGCrF2uunmekK507_pSen-mkcZigCBud1Y/edit)
 
+Testing is important. We all know that. This gives an introduction to the
+benefits of Test Driven Development, how to use Jest for a good Test Driven
+Development experience (extremely important), and what/why is mocking.
 
+### Android apps in Kotlin: Hack Sprint
+
+Mobile apps are how people interact with the world right now. We teach people
+to use Kotlin ~~, the superior language over Java, ~~ for developing mobile
+applications.
+
+#### Hack Sprint Winter 2020 Session 4: Navigation
+
+![2020w hack sprint navigation](images/2020w-hack-sprint-banner-04.png)
+
+- topic: Gradle the build tool, Fragments, navigation through Fragments 
+- assets
+  - [README](https://github.com/uclaacm/hack-sprint-w20/tree/master/session-4-navigation)
+  - [slides](https://docs.google.com/presentation/d/1Vz5SGFhrbajIJIBdOpMbs_I9ud7v3dRcgYPvWBgBPic/edit)
+  
+Having multiple screens is important within an application. Using Fragments, we
+can set up multiple screen and how to move between them. 
+
+### Tooling for developers: Tooling Series
+
+There are a lot of useful tools that helps boost developer efficiency. But it
+might also have some steep learning curve. Tooling Series introduce and teach
+tools that can be useful. 
+
+#### Tooling Series Spring 2020 Session 4: $\LaTeX$
+
+![2020s tooling series latex](images/tooling-series-2020s-latex.png)
+
+- topic: using Overleaf for easy compilation of $\LaTeX$ document, simple
+  layout and math commands within $\LaTeX$
+- assets
+  - [README](https://github.com/uclaacm/hack-tooling-series/tree/master/session-4-latex)
+  - [slides](https://docs.google.com/presentation/d/1R5idS-YYpwiV7_dAPlCaOMC7y_BTQkgYnfnh4vq80i4/edit)
+  - [recording](https://www.youtube.com/watch?v=pUDJLB1RDkA)
+
+$\LaTeX$ allows you to gain more control over typesetting a document. It lets
+you write beautiful documents that can contain domain specific text such as
+math equations, chemical equations, graphs, code, etc. It is used heavily
+within academics for typesetting research paper and homeworks. But it is also
+useful in other context since forums like stackoverflow allows you to write
+math equation in $\LaTeX$ syntax.
