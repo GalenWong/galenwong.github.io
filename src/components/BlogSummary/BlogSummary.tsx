@@ -1,5 +1,5 @@
 import React, { ElementType, ComponentProps } from 'react';
-import { Typography, Box } from '@material-ui/core';
+import { Typography, Box } from '@mui/material';
 import { Link } from 'gatsby';
 
 
@@ -7,13 +7,11 @@ import { BlogPost } from '../../templates/HomeTemplate/HomeTemplate';
 
 interface BlogSummaryProps extends ComponentProps<ElementType>{
 	post: BlogPost;
-	component?: ElementType;
 }
 
-function BlogSummary({ post, component, ...props }: BlogSummaryProps) {
-	const Component = component || 'article';
+function BlogSummary({ post, ...props }: BlogSummaryProps) {
 	return (
-		<Component {...props}>
+		<article {...props}>
 			<Typography variant="h4" color="primary" component="h3" gutterBottom>
 				<Box lineHeight={1.3}>
 					<Link to={`/blog${post.fields.slug}`}>
@@ -27,7 +25,7 @@ function BlogSummary({ post, component, ...props }: BlogSummaryProps) {
 			<Typography variant="body1" color="textSecondary" gutterBottom>
 				{`${post.frontmatter.date} • ${post.timeToRead} min read`}
 			</Typography>
-		</Component>
+		</article>
 	);
 }
 

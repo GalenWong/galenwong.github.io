@@ -1,10 +1,22 @@
 
 import React from 'react';
+import { styled } from '@mui/material/styles';
 import { graphql } from 'gatsby';
 import Layout from '../../components/Layout/Layout';
 import BlogSummary from '../../components/BlogSummary/BlogSummary';
-import { makeStyles, createStyles, Theme } from '@material-ui/core';
 import SEO from '../../components/SEO/SEO';
+
+const PREFIX = 'HomePageTemplate';
+
+const classes = {
+	blogItem: `${PREFIX}-blogItem`
+};
+
+const StyledLayout = styled(Layout)(({ theme }) => ({
+	[`& .${classes.blogItem}`]: {
+		marginBottom: theme.spacing(8)
+	}
+}));
 
 export const pageQuery = graphql`
 {
@@ -42,23 +54,16 @@ export interface HomePageTemplateProps {
 	data: { allMarkdownRemark: { nodes: BlogPost[] }};
 }
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-	blogItem: {
-		marginBottom: theme.spacing(8)
-	}
-}));
-
 
 function HomePageTemplate({ data }: HomePageTemplateProps) {
-	const classes = useStyles();
 	const listOfBlogs = data.allMarkdownRemark.nodes.map(post =>
 		<BlogSummary className={classes.blogItem} post={post} key={post.id} />);
 
 	return (
-		<Layout showTopInfo>
+		<StyledLayout showTopInfo>
 			<SEO />
 			{listOfBlogs}
-		</Layout>
+		</StyledLayout>
 	);
 }
 

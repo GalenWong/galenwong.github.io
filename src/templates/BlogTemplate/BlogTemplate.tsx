@@ -1,11 +1,36 @@
 
 import React from 'react';
+import { styled } from '@mui/material/styles';
 import { graphql, Link } from 'gatsby';
 import BlogPost from '../../components/BlogPost/BlogPost';
 import Layout from '../../components/Layout/Layout';
-import { Typography, Theme } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/styles';
+import { Typography } from '@mui/material';
 import SEO from '../../components/SEO/SEO';
+
+const PREFIX = 'BlogTemplate';
+
+const classes = {
+	navBar: `${PREFIX}-navBar`,
+	nextPrevBar: `${PREFIX}-nextPrevBar`,
+	rightLink: `${PREFIX}-rightLink`
+};
+
+const StyledLayout = styled(Layout)(({ theme }) => ({
+	[`& .${classes.navBar}`]: {
+		textAlign: 'center'
+	},
+
+	[`& .${classes.nextPrevBar}`]: {
+		display: 'flex',
+		justifyContent: 'space-between',
+		margin: theme.spacing(4, 0),
+		flexWrap: 'wrap'
+	},
+
+	[`& .${classes.rightLink}`]: {
+		marginLeft: 'auto'
+	}
+}));
 
 export const pageQuery = graphql`
 	query BlogPostByPath($slug: String!) {
@@ -42,28 +67,12 @@ interface BlogTemplateProps {
 	};
 }
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-	navBar: {
-		textAlign: 'center'
-	},
-	nextPrevBar: {
-		display: 'flex',
-		justifyContent: 'space-between',
-		margin: theme.spacing(4, 0),
-		flexWrap: 'wrap'
-	},
-	rightLink: {
-		marginLeft: 'auto'
-	}
-}));
-
 function BlogTemplate({ data, pageContext }: BlogTemplateProps) {
-	const classes = useStyles();
 	const { markdownRemark } = data;
 	const { html, frontmatter, timeToRead } = markdownRemark;
 	const { next, prev } = pageContext;
 	return (
-		<Layout>
+		<StyledLayout>
 			<SEO article title={frontmatter.title} description={frontmatter.subtitle} />
 			<article>
 				<header>
@@ -84,7 +93,7 @@ function BlogTemplate({ data, pageContext }: BlogTemplateProps) {
 					<Link to="/">Go Back Home, the Middle</Link>
 				</nav>
 			</article>
-		</Layout>
+		</StyledLayout>
 	);
 }
 

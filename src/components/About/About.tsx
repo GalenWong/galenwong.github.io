@@ -1,7 +1,18 @@
 
 import React, { ComponentProps } from 'react';
-import { Typography, Theme } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/styles';
+import { styled } from '@mui/material/styles';
+import { Typography } from '@mui/material';
+const PREFIX = 'About';
+
+const classes = {
+	paragraph: `${PREFIX}-paragraph`
+};
+
+const Root = styled('article')(({ theme }) => ({
+	[`& .${classes.paragraph}`]: {
+		marginBottom: theme.spacing(2)
+	}
+}));
 
 const introStr = `
 Hi, my name is Galen Wong.
@@ -29,14 +40,7 @@ const lazyUpdate = <>
 	Meat and flesh like me, and like you.`}
 </>;
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-	paragraph: {
-		marginBottom: theme.spacing(2)
-	}
-}));
-
 function About() {
-	const classes = useStyles();
 	const Title = ({ children }: ComponentProps<'h2'>) =>
 		<Typography variant="h3" component="h2" classes={{ root: classes.paragraph }}>
 			{children}
@@ -49,7 +53,14 @@ function About() {
 		<a target="_blank" rel="noreferrer noopener" {...aProps}>{children}</a>;
 
 	return (
-		<article>
+		<Root>
+			<Title>
+				Disclaimer
+			</Title>
+			<p>
+				Opinions expressed are solely my own and do not express the views or
+				opinions of my employer.
+			</p>
 			<Title>
 				About Galen
 			</Title>
@@ -162,7 +173,7 @@ function About() {
 				,{` `}
 				and meet some amazing people.
 			</p>
-		</article>
+		</Root>
 	);
 }
 

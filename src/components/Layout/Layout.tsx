@@ -1,18 +1,25 @@
 import React, { ComponentProps } from 'react';
-import { makeStyles, createStyles } from '@material-ui/styles';
-import { Theme } from '@material-ui/core';
+import { styled } from '@mui/material/styles';
 
 import FixedContainer from '../FixedContainer/FixedContainer';
 import NavBar from '../NavBar/NavBar';
 import FloatingLightDarkFab from '../FloatingLightDarkFab/FloatingLightDarkFab';
 import FooterBar from '../FooterBar/FooterBar';
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-	navbar: {
+const PREFIX = 'Layout';
+
+const classes = {
+	navbar: `${PREFIX}-navbar`,
+	footer: `${PREFIX}-footer`
+};
+
+const Root = styled('div')(({ theme }) => ({
+	[`& .${classes.navbar}`]: {
 		marginTop: 0,
 		marginBottom: theme.spacing(8)
 	},
-	footer: {
+
+	[`& .${classes.footer}`]: {
 		marginTop: theme.spacing(8)
 	}
 }));
@@ -25,19 +32,19 @@ interface LayoutProps extends ComponentProps<'div'>{
 function Layout({
 	children,
 	showTopInfo = false,
-	showBottomInfo = true
+	showBottomInfo = true,
+	className
 }: LayoutProps) {
-	const classes = useStyles();
 	return (
-		<>
-		<FixedContainer>
-			<NavBar className={ showTopInfo ? undefined : classes.navbar} />
-			{ showTopInfo ? <nav><FooterBar className={classes.navbar} /></nav> : null }
-			{children}
-			{ showBottomInfo ? <FooterBar className={classes.footer} /> : null }
-		</FixedContainer>
-		<FloatingLightDarkFab />
-		</>
+		<Root className={className}>
+			<FixedContainer>
+				<NavBar className={ showTopInfo ? undefined : classes.navbar} />
+				{ showTopInfo ? <nav><FooterBar className={classes.navbar} /></nav> : null }
+				{children}
+				{ showBottomInfo ? <FooterBar className={classes.footer} /> : null }
+			</FixedContainer>
+			<FloatingLightDarkFab />
+		</Root>
 	);
 }
 
