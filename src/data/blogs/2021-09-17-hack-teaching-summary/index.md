@@ -8,7 +8,12 @@ date: "2021-09-17"
   + [Hackschool Fall 2018 Session 3 Backend: What is an API?](#hackschool-fall-2018-session-3-backend-what-is-an-api)
   + [Hackschool Fall 2018 Session 5 Frontend: Intro to React](#hackschool-fall-2018-session-5-frontend-intro-to-react)
 + [Developing in Python: Learn.py](#developing-in-python-learnpy)
-  + [Learn.py](#learnpy)
+  + [Learn.py Spring 2019 Session 7: Web Dev Part 2](#learnpy-spring-2019-session-7-web-dev-part-2)
++ [Intermediate/Advanced JavaScript: JavaScript Chats](#intermediateadvanced-javascript-javascript-chats)
+  + [JavaScript Chats Fall 2019 Session 1: Function and `this`](#javascript-chats-fall-2019-session-1-function-and-this)
+  + [JavaScript Chats Fall 2019 Session 3: A Gentle Introduction to React Hooks](#javascript-chats-fall-2019-session-3-a-gentle-introduction-to-react-hooks)
+  + [JavaScript Chats Fall 2019 Session 4: Optimizing Frontend and React Apps](#javascript-chats-fall-2019-session-4-optimizing-frontend-and-react-apps)
+  + [JavaScript Chats Fall 2019 Session 6: Introduction to Testing with JavaScript](#javascript-chats-fall-2019-session-6-introduction-to-testing-with-javascript)
 
 During college, I was part of a club called [ACM
 Hack](https://hack.uclaacm.com/). The club runs beginner friendly workshops
