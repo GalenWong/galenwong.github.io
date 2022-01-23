@@ -81,7 +81,7 @@ service into smaller, more manageable chunks as well.
 
 ![hackschool fall 2019 session 6](images/hackschool-f19-w7.png)
 
-- topic: what are database and why we need it, using Firebase
+- topic: what databases are and why we need it, using Firebase
 - assets:
   - [README](https://github.com/uclaacm/hackschool-f19/tree/master/session-6-backend-database)
   - [slides](https://docs.google.com/presentation/d/1RjCwhW5_mFhfwUQ8uzXsJd7VFsbctQH8K9Z1tFhqvEc/edit?usp=sharing)
@@ -90,6 +90,21 @@ Server programs are forgetful if we just store things in memory, they get wiped
 out after the server shuts down. We need a way to persist data and therefore we
 need a database. Using Firebase, we can set up a database quickly without much
 hassle. 
+
+#### Hackschool Fall 2020 Session 3: Webpage Interaction with the DOM 
+
+![hackschool fall 2020 session 3 DOM](images/hackschool-f20-dom.png)
+
+- topic: how is JavaScript connected to HTML, what DOM is, how to manipulate the DOM
+- assets
+  - [README](https://github.com/uclaacm/hackschool-f20/tree/main/session-3-dom-api)
+  - [slides](https://docs.google.com/presentation/d/1p9hsLPy7TQBBL2DhfsvsW-xMT4GgoWtGQf_LDsMESCc/edit?usp=sharing)
+  - [recording](https://www.youtube.com/watch?v=Au3F9R0qr7M)
+
+DOM is the representation of the HTML within JavaScript. JavaScript's ability
+to manipulate the DOM allows web pages to become interactive. This is where web
+dev gets fun. The event listener pattern is engrained within DOM. We learn how
+to use it to react to user inputs in JavaScript.
 
 
 ### Developing in Python: Learn.py
@@ -174,11 +189,10 @@ Testing is important. We all know that. This gives an introduction to the
 benefits of Test Driven Development, how to use Jest for a good Test Driven
 Development experience (extremely important), and what/why is mocking.
 
-### Android apps in Kotlin: Hack Sprint
+### Mobile app development: Hack Sprint
 
-Mobile apps are how people interact with the world right now. We teach people
-to use Kotlin ~~, the superior language over Java, ~~ for developing mobile
-applications.
+Mobile apps are how people interact with the world right now. Hack Sprint 
+is a beginner friendly workshop series that teaches mobile app development.
 
 #### Hack Sprint Winter 2020 Session 4: Navigation
 
@@ -188,9 +202,26 @@ applications.
 - assets
   - [README](https://github.com/uclaacm/hack-sprint-w20/tree/master/session-4-navigation)
   - [slides](https://docs.google.com/presentation/d/1Vz5SGFhrbajIJIBdOpMbs_I9ud7v3dRcgYPvWBgBPic/edit)
-  
-Having multiple screens is important within an application. Using Fragments, we
-can set up multiple screen and how to move between them. 
+
+We teach people to use Kotlin ~~, the superior language over Java, ~~ for
+developing mobile applications. And Gradle is the default build tool.  Having
+multiple screens is important within an application. Using Fragments, we can
+set up multiple screen and how to move between them. 
+
+#### Hack Sprint Winter 2021 Session 5: Asynchronous Programming and useEffect 
+
+![2021 w hack sprint async programming and useEffect](images/2021w-hack-sprint-async-useEffect.png)
+
+- topic: Promises, `async/await`, the `useEffect` hook
+- assets
+  - [README](https://github.com/uclaacm/hack-sprint-w21/tree/master/session-5-async-and-life-cycle)
+  - [slides](https://docs.google.com/presentation/d/1kB-nw4e85AKmYQeg2eQkz3qeU4jk3s3gtp9OCT2-Shs/edit)
+  - [recording](https://www.youtube.com/watch?v=nlu2-xYNkQQ)
+
+One way to support cross platform mobile app is though React Native, which is
+written, well, in JavaScript. To achieve concurrency in JavaScript,
+`async/await` is the way to go. And when we need to capture some possibly
+asynchronous side effects we use the `useEffect` hook to do so. 
 
 ### Tooling for developers: Tooling Series
 
