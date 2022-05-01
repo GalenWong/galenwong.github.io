@@ -5,7 +5,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import {
 	createTheme,
 	ThemeProvider,
-	StyledEngineProvider,
 	responsiveFontSizes
 } from '@mui/material/styles';
 
@@ -166,15 +165,13 @@ export default function MuiCustomTheme({ darkMode, children, ...props }) {
 		document.body.className = '';
 	}, []);
 	return (
-		<StyledEngineProvider injectFirst>
-			<ThemeProvider theme={myTheme(darkMode)} {...props}>
-				<Head />
-				<CssBaseline />
-				<ChildrenWithGlobalStyle>
-					{children}
-				</ChildrenWithGlobalStyle>
-			</ThemeProvider>
-		</StyledEngineProvider>
+		<ThemeProvider theme={myTheme(darkMode)} {...props}>
+			<Head />
+			<CssBaseline />
+			<ChildrenWithGlobalStyle>
+				{children}
+			</ChildrenWithGlobalStyle>
+		</ThemeProvider>
 	);
 }
 

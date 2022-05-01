@@ -8,6 +8,7 @@ module.exports = {
 		titleTemplate: '%s | In the Middle'
 	},
 	plugins: [
+		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-top-layout`,
 		`gatsby-plugin-material-ui`,
 		{
@@ -17,7 +18,6 @@ module.exports = {
 				allExtensions: true
 			}
 		},
-		`gatsby-plugin-react-helmet`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
