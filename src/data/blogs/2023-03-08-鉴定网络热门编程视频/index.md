@@ -47,6 +47,12 @@ ChatGPT指出了异步函数的问题是难以阅读和维护，但是async/awai
 
 async/await的对立面就是线程，线程拥有独立的调用栈，当一个函数启用一个线程的时候，启用线程的函数可以直接返回，无需保留函数的栈帧。
 
+然而，我觉得作者最重要的观点其实是：
+
+> If you look at the IO operations in the standard library, they seem synchronous. In other words, they just do work and then return a result when they are done. But it’s not that they’re synchronous in the sense that it would mean in JavaScript. Other Go code can run while one of these operations is pending. It’s that Go has eliminated the distinction between synchronous and asynchronous code.
+
+对于Go来说，同步代码和异步代码并没有任何区别，但在JavaScript里，非async函数不能调用async函数（单纯为了副作用除外）。
+
 这篇文章的作者明显偏好线程（不一定是OS线程，运行时进程也可以，例如go routine），但是这里不对作者的意见做出评价，仅仅提取作者对async/await传染性的客观描述。
 
 
@@ -78,11 +84,100 @@ async/await的对立面就是线程，线程拥有独立的调用栈，当一个
 
 视频里的实现有解决async/await的传染性带来的调用栈返回问题吗？有，当async函数被调用的时候，抛出的Promise结束了整个调用链条，因为错误被抛了出来，函数也就不用结束执行和返回。但是由于这是模拟的代数效应，代价就是要把整个调用链条重新执行。
 
+这里就不再重复视频里的代码了，可以去视频里看一遍。 
 
-？你这不是死循环？接口不返回无限执行
+### 模仿出来的代数效应
 
-感觉像是递归调用，什么时候有结果什么时候递归结束，如果一直调用，不会栈溢出吗
+模仿出来的代数效应有解决async/await传染性的问题吗？在语法上确实解决了传染性的问题，同步代码和异步代码可以无缝切换，只需要在代码入口用try-catch去捕捉抛出的Promise就可以了。当然，一切都是有代价的，代价就是任何一个`fetch`都需要被抛出并且重新执行，效率肯定是比较低。
 
-这个一直是微任务的执行会卡顿页面吗
+那我们就可以理解React中如何使用代数效应实现`Suspense`的功能了，任何异步函数的结果都是以`Promise`的形式存在，只要把`Promise`抛出，让React对`Promise`进行等待，结束后再次渲染，就可以了。
 
-看了5遍，发现是不是在请求到数据前会疯狂throw？
+### 对视频评论的回应
+
+在视频的评论区里，有许多有趣的问题，有一些问题我在评论区里做出了回应， 但也想在这里更加详细的回应一下。
+
+#### 是否存在死循环？
+
+在评论区里，有许多同学提出了关于死循环的问题：
+
+评论1:
+> ？你这不是死循环？接口不返回无限执行
+
+评论2:
+> 感觉像是递归调用，什么时候有结果什么时候递归结束，如果一直调用，不会栈溢出吗
+
+评论3:
+> 看了5遍，发现是不是在请求到数据前会疯狂throw？
+
+评论4:
+> 这个一直是微任务的执行会卡顿页面吗
+
+大家会出现这样的误解应该是因为对代码运行逻辑的误解，在视频里，对运行逻辑的解释是：
+
+1. 代码路径上遇到异步函数，把Promise抛出
+2. 最上层的代码catch到抛出的Promise，重新执行函数
+3. 代码路径上再次遇到异步函数，把Promise中缓存下来的的结果返回，不再调用异步函数
+
+这里是相关的代码：
+
+```js
+
+function makeAsyncSync(func) {
+  // 此处省略对fetch实现的更改。。。
+  try {
+    // 调用目标函数
+    func();
+  } catch(err) {
+    // 接住任何抛出的Promise
+    if (err instanceof Promise) {
+      const reRun = () => {
+        i = 0;
+        func();
+      }
+      // 重新执行函数
+      err.then(reRun, reRun);
+    }
+  }
+}
+
+```
+
+大家的误区出现在第三步，万一Promise还没有结束，并没有缓存任何结果，不就再次抛出，又重新执行吗？按照这个逻辑，评论1确实是对的，但是
+如果试一下，并不会发生这样的事情，为什么呢？重点在第二步：
+
+2. 最上层的代码catch到抛出的Promise，**等到Promise结束，缓存结果后**，再次重新执行函数
+
+在上面的代码里，重新执行`func`的`reRun`是在Promise的`.then`中执行的，也就是要等到Promise结束后再重新调用，并不会出现无限执行的情况，如果Promise永远不结束那就永远不会调用，那自然也不会出现重新throw的情况，也不会有大量的微任务一直执行。
+
+对于栈溢出的问题，当Promise被抛出时，整个调用栈就可以丢弃了，因为JavaScript没有可以从抛出异常的地点继续执行的能力，也就没有对任何调用栈上object的reference，不会出现内存安全问题。
+
+#### 通过阻塞的方式解决问题？
+
+有一条评论提出了另一种解决方法：
+
+> 评论5: wh开头的那个循环卡住，里面不停检查fetch有没有返回数据，返回了就不进循环了然后return(这条评论是我只看了视频开头想到的办法)
+
+
+如果用代码表达出来，大概是这样的实现：
+
+```js
+
+function syncFetch(...args) {
+  let data = undefined;
+
+  fetch(...args).then((resp) => {
+    return resp.json();
+  }).then((json) => {
+    data = json;
+  });
+
+  while(data === undefined) {}
+
+  return data;
+}
+```
+
+
+这样的解法是会导致死循环的，因为JavaScript的单线程事件循环(event loop)机制，会导致永远卡在循环的执行，不会执行Promise的callback，也就导致`data`变量永远不会被赋值。 所以阻塞的方式并不能解决问题。
+
+
